@@ -3,42 +3,61 @@
     padding: 0;
     outline: 0 none;
     border: 0 none;
+    box-sizing: border-box;
 }
-main{
-    margin: 0 auto;
-    width: 80%;
-}
+
 body{
-    font-family: 'Francois One', sans-serif;
+    font-family: 'Playfair Display', serif;
 }
+/********** TITRE TAILLE MAX ********/
+h2{
+    text-align: center;
+    padding-top: 3%;
+    font-size: 2.5em;
+}
+h3{
+    text-align: center;
+    border-bottom: 1px solid black;
+    font-size: 1.5em;
+}
+
+/********** FIN TITRE TAILLE MAX ********/
+
 /********** DEBUT NAV TAILLE MAX *******/
 #main-nav{
-    background: mistyrose;
+    background: white;
     width: 100%;
     position: fixed;
     top: 0;
     box-shadow: 0px 2px 11px 1px rgba(0,0,0,0.75);
+    z-index: 2;
 }
-#main-nav li{
+  /* #main-nav li{
     width: 95px;
-}
+} */
 #main-nav ul {
     list-style-type: none;
 }
 /********** FIN NAV TAILLE MAX *******/
 
 /********** DEBUT MAIN TAILLE MAX **********/
+main{
+    margin: 0 auto;
+    width:100%;
+}
 #slide1, #slide2, #slide3, #slide4{
     /*float: left;*/
     width: 100%;
-    height: 950px;
+    min-height: 100vh;
 }
 #slide1{
     background: url(../img/slide1-bg.jpg) center 0 no-repeat fixed;
+    position: relative;
+    z-index: 0;
 }
 #slide2{
-    background: gray;
-    height: 500px;
+    /*background:url(../img/slide2-bg.jpg) center 0 no-repeat fixed;*/
+    background: white;
 }
 #slide3{
     background:url(../img/slide3-bg.jpg) center 0 no-repeat fixed;
@@ -48,12 +67,65 @@ body{
 }
 
 .slide_inside {
-	width: 980px;
+	width: 80%;
+    height: 100vh;
 	margin: 0 auto;
-    height : 950px;
-}
+    position: relative;
+} 
+
 
 /********** FIN MAIN TAILLE MAX **********/
+
+/********** DEBUT PAGE ACCUEIL TAILLE MAX ********/
+.info{
+    background: rgba(255, 255, 255, 0.6);
+    width: 30%;
+    position: absolute;
+    margin: 5%;
+    padding: 2%;
+    text-align: center;
+    border-radius: 10px;
+}
+h1{
+    text-align: center;
+    font-size: 3em;
+}
+/********** FIN PAGE ACCUEIL TAILLE MAX ********/
+
+/********** DEBUT PAGE COMPETENCE **********/
+#slide_competence{
+    background-color: lightgray;
+}
+.competence{
+    width: 30%;
+    margin: 1em;
+    border: 4px solid;
+    height: 100px;
+    float: left;
+    margin-top: 10%;
+}
+
+.competence .titre-front{
+    color: tomato;
+}
+.competence .titre-dev{
+    color: indianred;
+}
+.competence .titre-framework{
+    color: crimson;
+}
+.logo{
+    border: 1px solid;
+}
+#slide_competence .logo img{
+    width: 5%;
+}
+/********** FIN PAGE COMPETENCE **********/
+
+/********* DEBUT PAGE CONTACT TAILLE MAX *******/
+
+
+/********** FIN PAGE CONTACT TAILLE MAX **************/
 
 /********** DEBUT FOOTER ********/
 footer{
@@ -64,13 +136,18 @@ footer{
 
 
 /*************** RESPONSIVE ***************/
-@media screen and (max-width:1050px){
+ @media screen and (max-width:992px){
     main{
         width: 100%;
     }
-
+    .info{
+        width: 50%;
+    }
+    h1{
+        font-size: 2em;
+    }
 }
-@media screen and (min-width:780px){
+ @media screen and (min-width:780px){
     main{
         width: 100%;
         margin-top: 2.5em;
@@ -80,7 +157,6 @@ footer{
     }
 
     #main-nav li{
-        width: 95px;
         float: right;
         color: black;
         padding: 1%;
@@ -88,12 +164,12 @@ footer{
     }
 }
 /*entre 780px et 1050px, le main fera 750px*/
-@media screen and (max-width:780px){
+ @media screen and (max-width:780px){
     main{
         width: 100%;
     }
     /* Menu burger */
-    #main-nav {
+     #main-nav {
         width: 200px;
         position: fixed;
         top: 0;
@@ -106,7 +182,7 @@ footer{
 
     #main-nav ul {
         float: right;
-        background-color: mistyrose;
+        background-color: white;
         width: 150px;
         list-style-type: none;
         box-shadow: 0px 2px 11px 1px rgba(0,0,0,0.75);
@@ -133,9 +209,15 @@ footer{
         font-size: 2em;
     }
     /* Fin menu burger */
+    .info{
+        width: 90%;
+        margin-top: 15%;
+
+    }
+
 }
  /*entre 580px et 780px, le main fera 550px*/
-@media screen and (max-width:580px){
+ @media screen and (max-width:580px){
     main{
         width: 100%;
         border: none;
@@ -147,6 +229,10 @@ footer{
     }
     section{
         margin: 0;
+    }
+    .info{
+        width: 90%;
+        margin-top: 15%;
     }
 }
 /*entre 0px et 580px le main fera 100% ainsi que les zones .a .b .c .d*/
