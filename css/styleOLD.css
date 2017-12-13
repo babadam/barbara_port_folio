@@ -97,33 +97,29 @@ h1{
 #slide_competence{
     background-color: lightgray;
 }
-#skills span {
-    top: -30px;
-    left: 2%;
-    position: relative;
-    font-size: 1.4em;
-    font-weight: bolder;
-    font-family: monospace;
-    color: #fff;
+.competence{
+    width: 30%;
+    margin: 1em;
+    border: 4px solid;
+    height: 100px;
+    float: left;
+    margin-top: 10%;
 }
 
-progress {
-    background-color: #f3f3f3;
-    border: 0;
-    height: 2.5em;
-    width: 100%;
+.competence .titre-front{
+    color: tomato;
 }
-
-progress::-webkit-progress-bar {
-    background-color: #e0eaf0;
+.competence .titre-dev{
+    color: indianred;
 }
-
-progress::-webkit-progress-value {
-    background-color: #329ad1;
+.competence .titre-framework{
+    color: crimson;
 }
-
-progress::-moz-progress-bar {
-    background-color: #329ad1;
+.logo{
+    border: 1px solid;
+}
+#slide_competence .logo img{
+    width: 5%;
 }
 /********** FIN PAGE COMPETENCE **********/
 

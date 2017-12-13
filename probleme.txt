@@ -1,0 +1,8 @@
+Nav garder la meme police VV
+==> trouver une autre police
+
+--------------------------------------
+Skil bar 
+https://codepen.io/Tushkiz/pen/lntvd
+
+jquery ne finctionne pas ==> Uncaught TypeError: r.easing[this.easing] is not a function

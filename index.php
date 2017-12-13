@@ -16,8 +16,8 @@ $ligne_competence = $competences -> fetchAll(PDO::FETCH_ASSOC);
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
         <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
-        <link href="https://fonts.googleapis.com/css?family=Francois+One" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans" rel="stylesheet">
     </head>
     <body>
         <nav id="main-nav">
@@ -53,65 +53,14 @@ $ligne_competence = $competences -> fetchAll(PDO::FETCH_ASSOC);
             <div id="slide2">
                 <div class="slide_inside" id="slide_competence">
                     <h2>Compétences</h2>
-                    <div class="competence front">
-                        <h3 class="titre-front"><i class="fa fa-code" aria-hidden="true"></i>Intégration</h3>
-                            <?php
-                                for($i = 0; $i < count($ligne_competence); $i++ ){
-                                    // echo '<pre style="color: black; background-color:white;">';
-                                    // print_r($ligne_competence[$i]);
-                                    // echo '</pre>';
-                                    if($ligne_competence[$i]['categorie'] == 'dev_front'){
-                                        echo '<p>';
-                                        echo $ligne_competence[$i]['competence'];
-                                         echo '</p>';
-                                    }
-                                }
-                            ?>
-                        
-                    </div>
-                        
-                    <div class="competence dev">
-                        <h3 class="titre-dev"><i class="fa fa-cogs" aria-hidden="true"></i>Développement</h3>
-                        <?php
-                            for($i = 0; $i < count($ligne_competence); $i++ ){
-                                // echo '<pre style="color: black; background-color:white;">';
-                                // print_r($ligne_competence[$i]);
-                                // echo '</pre>';
-                                if($ligne_competence[$i]['categorie'] == 'dev_back'){
-                                    echo '<p>';
-                                    echo $ligne_competence[$i]['competence'];
-                                    echo '</p>';
-                                }
-                            }
-                        ?>
-                    </div>
-                        
-                    
-                    <div class="competence framework">
-                        <h3 class="titre-framework"><i class="fa fa-plus-square" aria-hidden="true"></i>Framework</h3>
-                        <?php
-                            for($i = 0; $i < count($ligne_competence); $i++ ){
-                                 // echo '<pre style="color: black; background-color:white;">';
-                                // print_r($ligne_competence[$i]);
-                                // echo '</pre>';
-                                if($ligne_competence[$i]['categorie'] == 'framework'){
-                                    echo '<p>';
-                                    echo $ligne_competence[$i]['competence'];
-                                    echo '</p>';
-                                    }
-                                }
-                            ?>
-                    </div>
-                     <!-- <div class="logo">
-                        <img src="img/logo/html.png" alt="logo">
-                        <img src="img/logo/css.png" alt="logo">
-                        <img src="img/logo/js.jpg" alt="logo">
-                        <img src="img/logo/php.png" alt="logo">
-                        <img src="img/logo/mysql.png" alt="logo">
-                        <img src="img/logo/bootstrap.png" alt="logo">
-                        <img src="img/logo/jquery.jpg" alt="logo">
-                        <img src="img/logo/silex.png" alt="logo">
-                    </div> -->
+                    <section id="skills">
+                        <progress value="80" max="100"></progress><span>JavaScript/jQuery</span>
+                        <progress value="70" max="100"></progress><span>HTML5/CSS3</span>
+                        <progress value="60" max="100"></progress><span>NodeJS</span>
+                        <progress value="70" max="100"></progress><span>Java/PHP</span>
+                        <progress value="60" max="100"></progress><span>MySQL</span>
+                        <progress value="80" max="100"></progress><span>Photoshop</span>
+					</section>
                     
                 </div>
                

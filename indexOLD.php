@@ -72,38 +72,49 @@ $ligne_competence = $competences -> fetchAll(PDO::FETCH_ASSOC);
                         
                     <div class="competence dev">
                         <h3 class="titre-dev"><i class="fa fa-cogs" aria-hidden="true"></i>Développement</h3>
-                              <?php
-                                    for($i = 0; $i < count($ligne_competence); $i++ ){
-                                        // echo '<pre style="color: black; background-color:white;">';
-                                        // print_r($ligne_competence[$i]);
-                                        // echo '</pre>';
-                                        if($ligne_competence[$i]['categorie'] == 'dev_back'){
-                                            echo '<p>';
-                                            echo $ligne_competence[$i]['competence'];
-                                            echo '</p>';
-                                        }
-                                    }
-                                ?>
+                        <?php
+                            for($i = 0; $i < count($ligne_competence); $i++ ){
+                                // echo '<pre style="color: black; background-color:white;">';
+                                // print_r($ligne_competence[$i]);
+                                // echo '</pre>';
+                                if($ligne_competence[$i]['categorie'] == 'dev_back'){
+                                    echo '<p>';
+                                    echo $ligne_competence[$i]['competence'];
+                                    echo '</p>';
+                                }
+                            }
+                        ?>
                     </div>
                         
                     
                     <div class="competence framework">
                         <h3 class="titre-framework"><i class="fa fa-plus-square" aria-hidden="true"></i>Framework</h3>
-                              <?php
-                                    for($i = 0; $i < count($ligne_competence); $i++ ){
-                                        // echo '<pre style="color: black; background-color:white;">';
-                                        // print_r($ligne_competence[$i]);
-                                        // echo '</pre>';
-                                        if($ligne_competence[$i]['categorie'] == 'framework'){
-                                            echo '<p>';
-                                            echo $ligne_competence[$i]['competence'];
-                                            echo '</p>';
-                                        }
+                        <?php
+                            for($i = 0; $i < count($ligne_competence); $i++ ){
+                                 // echo '<pre style="color: black; background-color:white;">';
+                                // print_r($ligne_competence[$i]);
+                                // echo '</pre>';
+                                if($ligne_competence[$i]['categorie'] == 'framework'){
+                                    echo '<p>';
+                                    echo $ligne_competence[$i]['competence'];
+                                    echo '</p>';
                                     }
-                                ?>
+                                }
+                            ?>
                     </div>
+                     <!-- <div class="logo">
+                        <img src="img/logo/html.png" alt="logo">
+                        <img src="img/logo/css.png" alt="logo">
+                        <img src="img/logo/js.jpg" alt="logo">
+                        <img src="img/logo/php.png" alt="logo">
+                        <img src="img/logo/mysql.png" alt="logo">
+                        <img src="img/logo/bootstrap.png" alt="logo">
+                        <img src="img/logo/jquery.jpg" alt="logo">
+                        <img src="img/logo/silex.png" alt="logo">
+                    </div> -->
                     
                 </div>
+               
             </div>
                 
             </div>
