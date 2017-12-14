@@ -75,6 +75,21 @@ $ligne_competence = $competences -> fetchAll(PDO::FETCH_ASSOC);
             <div id="slide5">
                 <div class="slide_inside" id="slide_contact">
                     <h2>Me contacter</h2>
+					<div class="container-form">
+						<form>
+							<input type="text" name="nom" id="nom" value="" placeholder="Nom"><br>
+
+                                <input type="email" name="email" id="email" value="" placeholder="Email"><br>
+
+                                <input type="text" name="phone" id="phone" value="" placeholder="Téléphone"><br>
+
+                                <input type="text" name="sujet" id="sujet" value="" placeholder="Sujet"><br>
+
+                                <textarea name="message" rows="8" cols="40" id=message placeholder="Message"></textarea>
+
+                                <input type="submit" name="" value="Envoyer">
+						</form>
+					</div>
                 </div>
             </div>
         </main>

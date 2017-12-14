@@ -1,8 +1,29 @@
-Nav garder la meme police VV
-==> trouver une autre police
+ Jeudi 14 décembre 21h04 : (reste à faire) (essayer de finir ça pour le 22/12/2017 au soir )
 
---------------------------------------
-Skil bar 
-https://codepen.io/Tushkiz/pen/lntvd
+-> creation container formulaire contact et input
+  ==> 1. mettre en forme et responsive
+  ==> 2. requete permettant d'insérer le message (php procé ou objet (mila) ?)
+  ==> 3. validation formulaire php & js 
 
-jquery ne finctionne pas ==> Uncaught TypeError: r.easing[this.easing] is not a function
+-> page expérience et formation 
+ ==> faire trois div (avec les dates en figcaption)(2011 -> bac ; 2011-2015 -> garde enfants; depuis juin 2017 -> formation le POLES 
+==> refaire BDD car mettre image qui resume cela genre compta, enfant et balise
+==> refaire formulaire en admin pour insérer photo
+==> creer la boucle pour afficher ces div de façon dynamique /!\ galère photo reprendre site Yakine et Annonceo 
+==> rendre tout cela responsive 
+
+-> page realisation 
+==> site cv, annonceo, site html fahdi, projet client en cours  
+==> 4 div au milieu de la page 2en haut 2 en bas (cf  img/capturereal2.png)
+==> refaire BDD car mettre sceenshot de chaque projet
+==> refaire formulaire en admin pour insérer photo
+==> creer la boucle pour afficher ces div de façon dynamique /!\ galère photo reprendre site Yakine et Annonceo 
+==> rendre tout cela responsive 
+
+-> fignoler tout ce qui ne va pas
+==> verifier responsive 
+==> la nav en menu burger : refaire plus propre 
+==> footer : barbara 2017 fonction now() php
+
+-> prendre un hebergement et mettre tout cela en ligne 
+
