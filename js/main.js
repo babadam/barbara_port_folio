@@ -1,4 +1,6 @@
 /*MENU BURGER*/
+
+// fonction au clique sur l'icone burger
 $(function() {
     // var nav = $("#main-nav");
     var btn = $("#toggle-nav");
@@ -11,6 +13,7 @@ $(function() {
 
 });
 
+//fonction au clique sur les liens de menu burger 
 $(function(){
     var a = $(".toggle-a");
     a.on("click", function(e){
@@ -21,10 +24,11 @@ $(function(){
 /* FIN MENU BURGER */
 
 /* BARRE COMPETENCE */
-//$(function() {
-//  $('progress').each(function() {
-//    var max = $(this).val();
-//    $(this).val(0).animate({ value: max }, { duration: 2000, easing: 'easeOutCirc' });
-//			});
-//});
+$(document).ready(function(){
+	$('.skillbar').each(function(){
+		$(this).find('.skillbar-bar').animate({
+			width:$(this).attr('data-percent')
+		},3000);
+	});
+});
 /* FIN BARRE COMPETENCE */

@@ -16,8 +16,8 @@ $ligne_competence = $competences -> fetchAll(PDO::FETCH_ASSOC);
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
         <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
-        <link href="https://fonts.googleapis.com/css?family=Francois+One" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans" rel="stylesheet">
     </head>
     <body>
         <nav id="main-nav">
@@ -53,70 +53,48 @@ $ligne_competence = $competences -> fetchAll(PDO::FETCH_ASSOC);
             <div id="slide2">
                 <div class="slide_inside" id="slide_competence">
                     <h2>Compétences</h2>
-                    <div class="competence front">
-                        <h3 class="titre-front"><i class="fa fa-code" aria-hidden="true"></i>Intégration</h3>
-                            <?php
-                                for($i = 0; $i < count($ligne_competence); $i++ ){
-                                    // echo '<pre style="color: black; background-color:white;">';
-                                    // print_r($ligne_competence[$i]);
-                                    // echo '</pre>';
-                                    if($ligne_competence[$i]['categorie'] == 'dev_front'){
-                                        echo '<p>';
-                                        echo $ligne_competence[$i]['competence'];
-                                         echo '</p>';
-                                    }
-                                }
-                            ?>
-                        
-                    </div>
-                        
-                    <div class="competence dev">
-                        <h3 class="titre-dev"><i class="fa fa-cogs" aria-hidden="true"></i>Développement</h3>
-                        <?php
-                            for($i = 0; $i < count($ligne_competence); $i++ ){
-                                // echo '<pre style="color: black; background-color:white;">';
-                                // print_r($ligne_competence[$i]);
-                                // echo '</pre>';
-                                if($ligne_competence[$i]['categorie'] == 'dev_back'){
-                                    echo '<p>';
-                                    echo $ligne_competence[$i]['competence'];
-                                    echo '</p>';
-                                }
-                            }
-                        ?>
-                    </div>
-                        
-                    
-                    <div class="competence framework">
-                        <h3 class="titre-framework"><i class="fa fa-plus-square" aria-hidden="true"></i>Framework</h3>
-                        <?php
-                            for($i = 0; $i < count($ligne_competence); $i++ ){
-                                 // echo '<pre style="color: black; background-color:white;">';
-                                // print_r($ligne_competence[$i]);
-                                // echo '</pre>';
-                                if($ligne_competence[$i]['categorie'] == 'framework'){
-                                    echo '<p>';
-                                    echo $ligne_competence[$i]['competence'];
-                                    echo '</p>';
-                                    }
-                                }
-                            ?>
-                    </div>
-                     <!-- <div class="logo">
-                        <img src="img/logo/html.png" alt="logo">
-                        <img src="img/logo/css.png" alt="logo">
-                        <img src="img/logo/js.jpg" alt="logo">
-                        <img src="img/logo/php.png" alt="logo">
-                        <img src="img/logo/mysql.png" alt="logo">
-                        <img src="img/logo/bootstrap.png" alt="logo">
-                        <img src="img/logo/jquery.jpg" alt="logo">
-                        <img src="img/logo/silex.png" alt="logo">
-                    </div> -->
-                    
+
+                    <div class="container-skillbar">
+	                       <div class="skillbar clearfix " data-percent="70%">
+		                       <div class="skillbar-title skillbar-title-html"><span>HTML5</span></div>
+		                       <div class="skillbar-bar skillbar-bar-html"></div>
+		                       <div class="skillbar-percent">70%</div>
+	                       </div> <!-- Ende Skill Bar -->
+
+	                       <div class="skillbar clearfix " data-percent="65%">
+		                        <div class="skillbar-title skillbar-title-css"><span>CSS3</span></div>
+		                        <div class="skillbar-bar skillbar-bar-css"></div>
+		                        <div class="skillbar-percent">65%</div>
+	                       </div> <!-- Ende Skill Bar -->
+
+	                       <div class="skillbar clearfix " data-percent="25%">
+		                        <div class="skillbar-title" style="background: #06A2CB;"><span>Js/jQuery</span></div>
+		                        <div class="skillbar-bar" style="background: #06A2CB;"></div>
+		                        <div class="skillbar-percent">25%</div>
+	                       </div> <!-- Ende Skill Bar -->
+
+	                       <div class="skillbar clearfix " data-percent="80%">
+		                         <div class="skillbar-title" style="background: #218559;"><span>Photoshop</span></div>
+		                         <div class="skillbar-bar" style="background: #218559;"></div>
+		                        <div class="skillbar-percent">80%</div>
+	                       </div> <!-- Ende Skill Bar -->
+
+	                       <div class="skillbar clearfix " data-percent="85%">
+		                         <div class="skillbar-title" style="background: #D0C6B1;"><span>Indesign</span></div>
+		                         <div class="skillbar-bar" style="background: #D0C6B1;"></div>
+		                         <div class="skillbar-percent">85%</div>
+	                       </div> <!-- Ende Skill Bar -->
+
+	                       <div class="skillbar clearfix " data-percent="75%">
+		                         <div class="skillbar-title" style="background: #192823;"><span>Illustrator</span></div>
+		                         <div class="skillbar-bar" style="background: #454545;"></div>
+		                         <div class="skillbar-percent">75%</div>
+	                       </div> <!-- Ende Skill Bar -->
+                       </div><!-- Ende container Skill Bar -->
                 </div>
-               
+
             </div>
-                
+
             </div>
             <div id="slide3">C</div>
             <div id="slide4"></div>

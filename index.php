@@ -53,19 +53,21 @@ $ligne_competence = $competences -> fetchAll(PDO::FETCH_ASSOC);
             <div id="slide2">
                 <div class="slide_inside" id="slide_competence">
                     <h2>Compétences</h2>
-                    <section id="skills">
-                        <progress value="80" max="100"></progress><span>JavaScript/jQuery</span>
-                        <progress value="70" max="100"></progress><span>HTML5/CSS3</span>
-                        <progress value="60" max="100"></progress><span>NodeJS</span>
-                        <progress value="70" max="100"></progress><span>Java/PHP</span>
-                        <progress value="60" max="100"></progress><span>MySQL</span>
-                        <progress value="80" max="100"></progress><span>Photoshop</span>
-					</section>
-                    
+
+                    <div class="container-skillbar">
+                           <?php
+                           for($i=0; $i<count($ligne_competence); $i++){?>
+                               <div class="skillbar clearfix " data-percent="<?= $ligne_competence[$i]['c_niveau']; ?>%">
+    		                       <div class="skillbar-title skillbar-title-<?= $ligne_competence[$i]['competence']; ?>"><span><?= $ligne_competence[$i]['competence']; ?></span></div>
+    		                       <div class="skillbar-bar skillbar-bar-<?= $ligne_competence[$i]['competence']; ?>"></div>
+    		                       <div class="skillbar-percent"><?= $ligne_competence[$i]['c_niveau']; ?>%</div>
+    	                       </div>
+                               <?php } ?>
+                       </div><!-- Ende container Skill Bar -->
                 </div>
-               
+
             </div>
-                
+
             </div>
             <div id="slide3">C</div>
             <div id="slide4"></div>

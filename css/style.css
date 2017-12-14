@@ -72,7 +72,7 @@ main{
     height: 100vh;
 	margin: 0 auto;
     position: relative;
-} 
+}
 
 
 /********** FIN MAIN TAILLE MAX **********/
@@ -94,37 +94,101 @@ h1{
 /********** FIN PAGE ACCUEIL TAILLE MAX ********/
 
 /********** DEBUT PAGE COMPETENCE **********/
-#slide_competence{
-    background-color: lightgray;
-}
-#skills span {
-    top: -30px;
-    left: 2%;
-    position: relative;
-    font-size: 1.4em;
-    font-weight: bolder;
-    font-family: monospace;
-    color: #fff;
-}
 
-progress {
-    background-color: #f3f3f3;
-    border: 0;
-    height: 2.5em;
-    width: 100%;
-}
+.container-skillbar {
+		width:80%;
+		padding-top:8vh;
+        margin: auto;
+	}
+	.skillbar {
+		position:relative;
+		display:block;
+		margin-bottom:2vh;
+		width:100%;
+		background:#efefef;
+		height:4vh;
+		border-radius:3px;
+		-moz-border-radius:3px;
+		-webkit-border-radius:3px;
+		-webkit-transition:0.4s linear;
+		-moz-transition:0.4s linear;
+		-ms-transition:0.4s linear;
+		-o-transition:0.4s linear;
+		transition:0.4s linear;
+		-webkit-transition-property:width, background-color;
+		-moz-transition-property:width, background-color;
+		-ms-transition-property:width, background-color;
+		-o-transition-property:width, background-color;
+		transition-property:width, background-color;
+	}
 
-progress::-webkit-progress-bar {
-    background-color: #e0eaf0;
-}
+	.skillbar-title {
+		position:absolute;
+		top:0;
+		left:0;
+		width:110px;
+		font-weight:bold;
+		font-size:0.9em;
+		color:#fff;
+		background:#6adcfa;
+		-webkit-border-top-left-radius:3px;
+		-webkit-border-bottom-left-radius:4px;
+		-moz-border-radius-topleft:3px;
+		-moz-border-radius-bottomleft:3px;
+		border-top-left-radius:3px;
+		border-bottom-left-radius:3px;
+	}
 
-progress::-webkit-progress-value {
-    background-color: #329ad1;
-}
+	.skillbar-title span {
+		display:block;
+		background:rgba(0, 0, 0, 0.15);
+		padding:0 20px;
+		height:4vh;
+		line-height:4vh;
+		-webkit-border-top-left-radius:3px;
+		-webkit-border-bottom-left-radius:3px;
+		-moz-border-radius-topleft:3px;
+		-moz-border-radius-bottomleft:3px;
+		border-top-left-radius:3px;
+		border-bottom-left-radius:3px;
+	}
 
-progress::-moz-progress-bar {
-    background-color: #329ad1;
-}
+	.skillbar-bar {
+		height:4vh;
+		width:0px;
+		border-radius:3px;
+		-moz-border-radius:3px;
+		-webkit-border-radius:3px;
+	}
+
+	.skillbar-percent {
+		position:absolute;
+		right:1vw;
+		top:0;
+		font-size:1em;
+		height:4vh;
+		line-height:4vh;
+		color:gray;
+	}
+
+    .skillbar-title-HTML5, .skillbar-bar-HTML5{
+        background-color: #DD1E2F;
+    }
+    .skillbar-title-CSS3, .skillbar-bar-CSS3{
+        background-color: #EBB035;
+    }
+    .skillbar-title-JQUERY, .skillbar-bar-JQUERY{
+        background-color: #06A2CB;
+    }
+    .skillbar-title-PHP, .skillbar-bar-PHP{
+        background-color: mistyrose;
+    }
+    .skillbar-title-MySQL, .skillbar-bar-MySQL{
+        background-color: green;
+    }
+    .skillbar-title-BOOTSTRAP, .skillbar-bar-BOOTSTRAP{
+        background-color: purple;
+    }
 /********** FIN PAGE COMPETENCE **********/
 
 /********* DEBUT PAGE CONTACT TAILLE MAX *******/
