@@ -12,13 +12,15 @@ body{
 /********** TITRE TAILLE MAX ********/
 h2{
     text-align: center;
-    padding-top: 3%;
+    padding-top: 9vh;
     font-size: 2.5em;
+    font-family: 'Rubik Mono One', sans-serif;
 }
 h3{
     text-align: center;
     border-bottom: 1px solid black;
     font-size: 1.5em;
+    font-family: 'Rubik Mono One', sans-serif;
 }
 
 /********** FIN TITRE TAILLE MAX ********/
@@ -46,13 +48,13 @@ main{
     margin: 0 auto;
     width:100%;
 }
-#slide1, #slide2, #slide3, #slide4{
+#slide1, #slide2, #slide3, #slide4, #slide5{
     /*float: left;*/
     width: 100%;
     min-height: 100vh;
 }
 #slide1{
-    background: url(../img/slide1-bg.jpg) center 0 no-repeat fixed;
+    background: url(../img/slide12-bg.jpg) center 0 no-repeat fixed;
     position: relative;
     z-index: 0;
 }
@@ -61,10 +63,13 @@ main{
     background: white;
 }
 #slide3{
-    background:url(../img/slide3-bg.jpg) center 0 no-repeat fixed;
+    background:url(../img/slide10-bg.jpg) center 0 no-repeat fixed;
 }
 #slide4{
-    background: darkgray;
+    background: #C9C0C1;
+}
+#slide5{
+    background:url(../img/slide13-bg.jpg) center 0 no-repeat fixed;
 }
 
 .slide_inside {
@@ -80,9 +85,9 @@ main{
 /********** DEBUT PAGE ACCUEIL TAILLE MAX ********/
 .info{
     background: rgba(255, 255, 255, 0.6);
-    width: 30%;
+    width: 50%;
     position: absolute;
-    margin: 5%;
+    margin: 8% 23%;
     padding: 2%;
     text-align: center;
     border-radius: 10px;
@@ -90,6 +95,10 @@ main{
 h1{
     text-align: center;
     font-size: 3em;
+    font-family: 'Rubik Mono One', sans-serif;
+}
+h1 span{
+    color: #879650;
 }
 /********** FIN PAGE ACCUEIL TAILLE MAX ********/
 
@@ -97,13 +106,13 @@ h1{
 
 .container-skillbar {
 		width:80%;
-		padding-top:8vh;
+		padding-top:12vh;
         margin: auto;
 	}
 	.skillbar {
 		position:relative;
 		display:block;
-		margin-bottom:2vh;
+		margin-bottom:5vh;
 		width:100%;
 		background:#efefef;
 		height:4vh;
@@ -198,7 +207,7 @@ h1{
 
 /********** DEBUT FOOTER ********/
 footer{
-    background: cadetblue;
+    background: #8AA59F;
     height: 50px;
 }
 /********** FIN FOOTER ********/
@@ -278,10 +287,14 @@ footer{
         font-size: 2em;
     }
     /* Fin menu burger */
+    /* Classe gerant presentation page accueil */
     .info{
         width: 90%;
-        margin-top: 15%;
-
+        margin: 27% 6%;
+    }
+    /* Container page competence */
+    #slide_competence{
+        width: 100%;
     }
 
 }
@@ -299,9 +312,27 @@ footer{
     section{
         margin: 0;
     }
-    .info{
-        width: 90%;
-        margin-top: 15%;
+    .skillbar-bar-HTML5, .skillbar-bar-CSS3, .skillbar-bar-JQUERY, .skillbar-bar-PHP, .skillbar-bar-MySQL, .skillbar-bar-BOOTSTRAP{
+        background-color: #efefef;
     }
+
+}
+@media screen and (max-width:460px){
+    h2{
+        font-size: 1.5em;
+    }
+    #slide_competence{
+        width: 100%;
+    }
+    .container-skillbar {
+    width: 92%;
+    padding-top: 8vh;
+    }
+    /* .slide_inside{
+        width: 100%;
+    }
+    .info{
+        width: 98%;
+    } */
 }
 /*entre 0px et 580px le main fera 100% ainsi que les zones .a .b .c .d*/

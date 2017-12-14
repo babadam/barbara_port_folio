@@ -16,8 +16,9 @@ $ligne_competence = $competences -> fetchAll(PDO::FETCH_ASSOC);
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
         <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
-        <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans" rel="stylesheet">
+        <!-- <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans" rel="stylesheet"> -->
+        <link href="https://fonts.googleapis.com/css?family=Quattrocento+Sans|Rubik+Mono+One|Playfair+Display|Merriweather+Sans" rel="stylesheet">
     </head>
     <body>
         <nav id="main-nav">
@@ -33,7 +34,7 @@ $ligne_competence = $competences -> fetchAll(PDO::FETCH_ASSOC);
             <div id="slide1">
                 <div class="slide_inside">
                     <div class="info">
-                        <h1>Barbara Tousverts </h1>
+                        <h1>Barbara Tous<span>verts</span> </h1>
                         <p>
                              Agée de 26 ans, je suis actuellement en formation de développement et d'intégration web depuis sept mois. <br>
                         </p>
@@ -71,6 +72,11 @@ $ligne_competence = $competences -> fetchAll(PDO::FETCH_ASSOC);
             </div>
             <div id="slide3">C</div>
             <div id="slide4"></div>
+            <div id="slide5">
+                <div class="slide_inside" id="slide_contact">
+                    <h2>Me contacter</h2>
+                </div>
+            </div>
         </main>
             <footer>
                 <p>Bas</p>
