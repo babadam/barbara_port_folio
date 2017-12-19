@@ -88,7 +88,33 @@ if(!empty($_POST)){
                 </div>
             </div>
             <div id="slide3">C</div>
-            <div id="slide4"></div>
+            <div id="slide4">
+                <div class="slide_inside" id="slide_formation">
+                    <h2>Experiences & formations</h2>
+                    <div class="container-formation">
+                        <div class="formation" id="container-form-web">
+                            <div class="date_formation">
+                                <p>Depuis 2017</p>
+                            </div>
+                            <div class="description_form" id="div_form_web">
+                                <span>Webforce 3 - LepoleS</span>
+                                <p>Formation labellisée Grande Ecole du  Numérique<br>
+                                    Techniques de développement et intégration web et mobile<br>
+                                    Back : Php - MySql<br>
+                                    Front : Html - Css - Javascript<br>
+                                    Librairies : Silex - Jquery - Ajax - Bootstrap - Wordpress
+                                </p>
+                            </div>
+                        </div>
+                        <div class="formation" id="div_form_enfant">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        </div>
+                        <div class="formation" id="div_form_compta">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div id="slide5">
                 <div class="slide_inside" id="slide_contact">
                     <h2>Me contacter</h2>

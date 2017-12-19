@@ -66,7 +66,7 @@ main{
     background:url(../img/slide7-bg.jpg) center 0 no-repeat fixed;
 }
 #slide4{
-    background: #C9C0C1;
+    background: #B7BFB9;
 }
 #slide5{
     background:url(../img/slide13-bg.jpg) center 0 no-repeat fixed;
@@ -199,6 +199,43 @@ h1 span{
         background-color: purple;
     }
 /********** FIN PAGE COMPETENCE **********/
+
+/********* DEBUT PAGE REALISATION TAILLE MAX *******/
+#slide_formation{
+    width: 60%;
+}
+.formation{
+    /* height: 20vh; */
+    margin-top: 2vh;
+}
+#container-form-web{
+    background-color: white;
+    background: rgba(255, 0, 0, 0.5);
+}
+.date_formation{
+    width: 40%;
+    background: rgba(255, 0, 0, 0.5);
+    text-align: center;
+    display: inline-block;
+}
+.date_formation p{
+    width: 100%;
+    padding: 20%;
+    font-family: 'Rubik Mono One', sans-serif;
+    color: #B7BFB9;
+    text-shadow: 1px 1px 2px black;
+}
+#div_form_web{
+    width: 60%;
+    float: right;
+}
+/* #div_form_enfant{
+    background-color: blue;
+}
+#div_form_compta{
+    background-color: green;
+} */
+/********* FIN PAGE REALISATION TAILLE MAX *******/
 
 /********* DEBUT PAGE CONTACT TAILLE MAX *******/
 .container-form{
