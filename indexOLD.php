@@ -83,12 +83,47 @@ if(!empty($_POST)){
     		                       <div class="skillbar-bar skillbar-bar-<?= $ligne_competence[$i]['competence']; ?>"></div>
     		                       <div class="skillbar-percent"><?= $ligne_competence[$i]['c_niveau']; ?>%</div>
     	                       </div>
-                               <?php } ?>
+                            <?php } ?>
                        </div><!-- Ende container Skill Bar -->
                 </div>
             </div>
             <div id="slide3">C</div>
-            <div id="slide4"></div>
+            <div id="slide4">
+                <div class="slide_inside" id="slide_formation">
+                    <h2>Experiences & formations</h2>
+                    <div class="container-formation">
+                        <div class="formation" id="container_form_web">
+                            <div class="date_formation" id="date_formation_web">
+                                <p>Depuis 2017</p>
+                            </div>
+                            <div class="description_form" id="div_form_web">
+                                <span>Webforce 3 - LepoleS</span>
+                                <p>Formation labellisée Grande Ecole du  Numérique<br>
+                                    Techniques de développement et intégration web et mobile
+                                </p>
+                            </div>
+                        </div>
+                        <div class="formation" id="container_form_enfant">
+                            <div class="date_formation" id="date_formation_enfant">
+                                <p>2011 - 2015</p>
+                            </div>
+                            <div class="description_form" id="div_form_enfant">
+                                <span>Garde d'enfant</span>
+                                <p>Société o2 / Employeur particulier</p>
+                            </div>
+                        </div>
+                        <div class="formation" id="container-form-bac">
+                            <div class="date_formation" id="date_formation_bac">
+                                <p>2010</p>
+                            </div>
+                            <div class="description_form" id="div_form_bac">
+                                <span>Baccalauréat STG</span>
+                                <p>Option : Comptabilité et Finance des Entreprises</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div id="slide5">
                 <div class="slide_inside" id="slide_contact">
                     <h2>Me contacter</h2>

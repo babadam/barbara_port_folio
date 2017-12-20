@@ -30,7 +30,7 @@ $resultat -> execute();
 $nbr_realisations =  $resultat -> rowCount();
 
 // requête pour compter les formations
-$resultat = $pdoCV -> prepare("SELECT * FROM t_formation WHERE utilisateur_id = '$id_utilisateur'");
+$resultat = $pdoCV -> prepare("SELECT * FROM t_formations WHERE utilisateur_id = '$id_utilisateur'");
 $resultat -> execute();
 $nbr_formations =  $resultat -> rowCount();
 

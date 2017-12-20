@@ -204,11 +204,11 @@ h1 span{
 #slide_formation{
     width: 60%;
 }
-.formation{
-    /* height: 20vh; */
-    margin-top: 2vh;
+.container-formation{
+    margin-top: 8vh;
 }
-#container-form-web{
+.formation{
+    margin-top: 2vh;
     background-color: white;
     background: rgba(255, 0, 0, 0.5);
 }
@@ -220,21 +220,22 @@ h1 span{
 }
 .date_formation p{
     width: 100%;
-    padding: 20%;
+    padding: 15%;
     font-family: 'Rubik Mono One', sans-serif;
     color: #B7BFB9;
     text-shadow: 1px 1px 2px black;
+    font-size: 1.5em;
 }
-#div_form_web{
+/* #date_formation_enfant p, #date_formation_bac p{
+    padding: 15%;
+} */
+.description_form{
     width: 60%;
     float: right;
+    padding-top: 3.5%;
+    padding-left: 7%;
 }
-/* #div_form_enfant{
-    background-color: blue;
-}
-#div_form_compta{
-    background-color: green;
-} */
+
 /********* FIN PAGE REALISATION TAILLE MAX *******/
 
 /********* DEBUT PAGE CONTACT TAILLE MAX *******/
@@ -300,6 +301,9 @@ footer{
 /*************** RESPONSIVE ***************/
 @media screen and (max-width:1085px){
     .container-form{
+        width: 90%;
+    }
+    #slide_formation{
         width: 90%;
     }
 }
@@ -423,9 +427,28 @@ footer{
     .group-input-1 input{
         margin-bottom: 1vh;
     }
-
-
+    /*Page expérience et formation*/
+    .date_formation{
+        width: 100%;
+    }
+    .date_formation p{
+        padding : 2%;
+        font-size: 1em;
+    }
+    .description_form {
+        padding: 2%;
+        text-align: center;
+        float: initial;
+        width: 100%;
+    }
+    #date_formation_enfant p, #date_formation_bac p{
+        padding: 1%;
+    }
 }
+
+
+
+
 @media screen and (max-width:460px){
     h2{
         font-size: 1.5em;
@@ -437,11 +460,5 @@ footer{
     width: 92%;
     padding-top: 8vh;
     }
-    /* .slide_inside{
-        width: 100%;
-    }
-    .info{
-        width: 98%;
-    } */
 }
 /*entre 0px et 580px le main fera 100% ainsi que les zones .a .b .c .d*/

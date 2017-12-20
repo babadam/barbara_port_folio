@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le :  ven. 15 déc. 2017 à 10:54
+-- Généré le :  mer. 20 déc. 2017 à 16:18
 -- Version du serveur :  10.1.22-MariaDB
 -- Version de PHP :  7.1.4
 
@@ -42,7 +42,16 @@ CREATE TABLE `t_commentaires` (
 --
 
 INSERT INTO `t_commentaires` (`id_commentaire`, `nom`, `email`, `telephone`, `sujet`, `message`) VALUES
-(1, 'Tousverts', 'barbara.tousverts@lepoles.com', 123456789, 'Poste a pourvoir', 'Je vous offre un CDI 30 k html css.');
+(8, 'fdgfdg', 'gfdgfdgd@live.fr', 0, 'fdgfdgf', 'gfdgfd'),
+(9, 'fdgfdg', 'gfdgfdgd@live.fr', 0, 'fdgfdgf', 'gfdgfd'),
+(10, 'gfdgfd', 'barbara.tousverts@lepoles.com', 663577089, 'gfdgfd', 'gfdgf'),
+(11, 'gfdgfd', 'barbara.tousverts@lepoles.com', 663577089, 'gfdgfd', 'gfdgf'),
+(12, 'gfdgfd', 'barbara.tousverts@lepoles.com', 663577089, 'gfdgfd', 'gfdgf'),
+(13, 'Barbara Tousverts', 'barbara.tousverts@lepoles.com', 663577089, 'vcvcx', 'vcxvcxv'),
+(14, 'Barbara Tousverts', 'barbara.tousverts@lepoles.com', 663577089, 'vcvcx', 'vcxvcxv'),
+(15, 'Barbara Tousverts', 'barbara.tousverts@lepoles.com', 663577089, 'fgf', 'gfdgfd'),
+(16, 'Barbara Tousverts', 'barbara.tousverts@lepoles.com', 663577089, 'fgf', 'gfdgfd'),
+(17, 'Barbara Tousverts', 'barbara.tousverts@lepoles.com', 663577089, 'gfgfg', 'gfdgfdg');
 
 -- --------------------------------------------------------
 
@@ -88,10 +97,10 @@ CREATE TABLE `t_experiences` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `t_formation`
+-- Structure de la table `t_formations`
 --
 
-CREATE TABLE `t_formation` (
+CREATE TABLE `t_formations` (
   `id_formation` int(3) NOT NULL,
   `f_titre` varchar(50) NOT NULL,
   `f_soustitre` varchar(50) NOT NULL,
@@ -99,6 +108,15 @@ CREATE TABLE `t_formation` (
   `f_description` text NOT NULL,
   `utilisateur_id` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `t_formations`
+--
+
+INSERT INTO `t_formations` (`id_formation`, `f_titre`, `f_soustitre`, `f_dates`, `f_description`, `utilisateur_id`) VALUES
+(3, 'Formation développeur - intégrateur Web', 'Webforce 3 - LepoleS ', 'Depuis 2017', '<p>Formation labellisée Grande Ecole du Numérique<br />Techniques de développement et intégration web et mobile<br />', 1),
+(4, 'Garde d\'enfants', 'Société O2 / Employeur particulier', '2011 - 2015', '', 1),
+(5, 'Baccalauréat STG', 'Option : Comptabilité et Finance des Entreprises', '2010', '', 1);
 
 -- --------------------------------------------------------
 
@@ -204,9 +222,9 @@ ALTER TABLE `t_experiences`
   ADD PRIMARY KEY (`id_experience`);
 
 --
--- Index pour la table `t_formation`
+-- Index pour la table `t_formations`
 --
-ALTER TABLE `t_formation`
+ALTER TABLE `t_formations`
   ADD PRIMARY KEY (`id_formation`);
 
 --
@@ -241,7 +259,7 @@ ALTER TABLE `t_utilisateurs`
 -- AUTO_INCREMENT pour la table `t_commentaires`
 --
 ALTER TABLE `t_commentaires`
-  MODIFY `id_commentaire` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_commentaire` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 --
 -- AUTO_INCREMENT pour la table `t_competences`
 --
@@ -253,10 +271,10 @@ ALTER TABLE `t_competences`
 ALTER TABLE `t_experiences`
   MODIFY `id_experience` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT pour la table `t_formation`
+-- AUTO_INCREMENT pour la table `t_formations`
 --
-ALTER TABLE `t_formation`
-  MODIFY `id_formation` int(3) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `t_formations`
+  MODIFY `id_formation` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT pour la table `t_loisirs`
 --
