@@ -200,7 +200,7 @@ h1 span{
     }
 /********** FIN PAGE COMPETENCE **********/
 
-/********* DEBUT PAGE REALISATION TAILLE MAX *******/
+/********* DEBUT PAGE FORMATION TAILLE MAX *******/
 #slide_formation{
     width: 60%;
 }
@@ -236,7 +236,51 @@ h1 span{
     padding-left: 7%;
 }
 
-/********* FIN PAGE REALISATION TAILLE MAX *******/
+/********* FIN PAGE FORMATION TAILLE MAX *******/
+
+/********* DEBUT PAGE REALISATION **********/
+#slide_realisation{
+    width: 70%;
+}
+.div_img_real{
+    float: left;
+}
+.div_img_real:nth-child(3){
+    clear: both;
+}
+.div_img_real img{
+    width: 30vw;
+}
+/* .imgEffets{
+    width: 41%;
+    height: 70vh;
+    margin-left: 30%;
+    margin-top: 5%;
+}
+.imgEffets li{
+    list-style: none;
+    float: left;
+    width: 49%;
+    height: 30vh;
+    margin: 0.5%;
+}
+
+.imgEffets img{
+    position: absolute;
+     z-index: 1;
+    height: 30vh;
+    box-shadow: 0 0 3px black;
+    transition: .5s cubic-bezier(0,3,.4,1);
+}
+.imgEffets img:hover{
+	z-index: 2;
+	transform: scale(1.3);
+	box-shadow: 0 0 10px black;
+}
+.imgEffets:hover img:not(:hover){
+	filter: grayscale(1) blur(8px);
+} */
+/********* FIN PAGE REALISATION *********/
 
 /********* DEBUT PAGE CONTACT TAILLE MAX *******/
 .container-form{

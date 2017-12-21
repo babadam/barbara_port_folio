@@ -47,6 +47,7 @@ if(isset($_GET['id_experience'])){
 include('inc/header.inc.php');
 include('inc/nav.inc.php');
 
+
 ?>
 <div class="container">
     <div class="row">

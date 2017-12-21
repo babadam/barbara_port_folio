@@ -4,6 +4,7 @@ $titre='';
 $sousTitre='';
 $dates='';
 $description='';
+$photo='';
 
 if(isset($_SESSION['connexion']) && $_SESSION['connexion']=='connecté'){ // si pas connecté : redirection vers le formulaire de ocnnexion
     $id_utilisateur = $_SESSION['id_utilisateur'];
@@ -23,8 +24,9 @@ if(isset($_POST['r_titre'])){ // Si on a posté une nouvelle compétence
         $sousTitre = addslashes($_POST['r_soustitre']);
         $dates = addslashes($_POST['r_dates']);
         $description = addslashes($_POST['r_description']);
+        $photo = addslashes($_POST['r_photo']);
         $id_realisation = addslashes($_POST['id_realisation']);
-        $pdoCV -> exec("UPDATE t_realisations SET r_titre = '$titre', r_soustitre = '$sousTitre', r_dates = '$dates', r_description = '$description' WHERE id_realisation = '$id_realisation'");
+        $pdoCV -> exec("UPDATE t_realisations SET r_titre = '$titre', r_soustitre = '$sousTitre', r_dates = '$dates', r_description = '$description', r_photo = '$photo' WHERE id_realisation = '$id_realisation'");
         header('location: realisations.php');
         exit();
     }
@@ -71,7 +73,12 @@ include('inc/nav.inc.php');
 
                         <div class="form-group">
                             <label for="r_description">Description</label><br>
-                            <input type="text" name="r_description" id ="r_description" value="<?= $ligne_realisation['r_description'] ?>"><br><br>
+                            <input type="text" name="r_description" id="r_description" value="<?= $ligne_realisation['r_description'] ?>"><br><br>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="r_photo">Photo</label>
+                            <input type="file" id="r_photo" name="r_photo" id="r_photo" value="<?= $ligne_realisation['r_photo'] ?>">
                         </div>
 
                         <input hidden name="id_realisation" value="<?= $ligne_realisation['id_realisation'] ?>">

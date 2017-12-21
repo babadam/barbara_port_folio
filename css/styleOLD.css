@@ -200,7 +200,7 @@ h1 span{
     }
 /********** FIN PAGE COMPETENCE **********/
 
-/********* DEBUT PAGE REALISATION TAILLE MAX *******/
+/********* DEBUT PAGE FORMATION TAILLE MAX *******/
 #slide_formation{
     width: 60%;
 }
@@ -220,15 +220,15 @@ h1 span{
 }
 .date_formation p{
     width: 100%;
-    padding: 19%;
+    padding: 15%;
     font-family: 'Rubik Mono One', sans-serif;
     color: #B7BFB9;
     text-shadow: 1px 1px 2px black;
     font-size: 1.5em;
 }
-#date_formation_enfant p, #date_formation_bac p{
+/* #date_formation_enfant p, #date_formation_bac p{
     padding: 15%;
-}
+} */
 .description_form{
     width: 60%;
     float: right;
@@ -236,7 +236,44 @@ h1 span{
     padding-left: 7%;
 }
 
-/********* FIN PAGE REALISATION TAILLE MAX *******/
+/********* FIN PAGE FORMATION TAILLE MAX *******/
+
+/********* DEBUT PAGE REALISATION **********/
+#slide_realisation{
+    width: 70%;
+}
+.imgEffets{
+    width: 41%;
+    height: 70vh;
+    margin-left: 30%;
+    margin-top: 5%;
+}
+.imgEffets li{
+    list-style: none;
+    float: left;
+    width: 49%;
+    height: 30vh;
+    margin: 0.5%;
+}
+.imgEffets li:nth-child(3){
+	clear: both;
+}
+.imgEffets img{
+    /* position: absolute; */
+    /* z-index: 1; */
+    height: 30vh;
+    box-shadow: 0 0 3px black;
+    transition: .5s cubic-bezier(0,3,.4,1);
+}
+.imgEffets li:hover img{
+	z-index: 2;
+	transform: scale(1.3);
+	box-shadow: 0 0 10px black;
+}
+.imgEffets:hover li:not(:hover){
+	filter: grayscale(1) blur(8px);
+}
+/********* FIN PAGE REALISATION *********/
 
 /********* DEBUT PAGE CONTACT TAILLE MAX *******/
 .container-form{

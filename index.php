@@ -33,7 +33,7 @@ if(!empty($_POST)){
     <head>
         <title>Site Cv <?= $ligne_utilisateur['prenom'] . ' ' . $ligne_utilisateur['nom']?></title>
         <link rel="stylesheet" href="css/style.css">
-        <meta name="description" content="Site Cv Tousverts Barbara : développeuse - intégratrice web junior">
+        <meta name="description" content="Site Cv Barbara Tousverts : développeuse - intégratrice web junior">
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
@@ -108,7 +108,15 @@ if(!empty($_POST)){
                 </div>
             </div>
             <div id="slide4">
-
+                <div class="slide_inside" id="slide_realisation">
+                    <h2>Réalisations</h2>
+                    <div class="imgEffets">
+                        <div class="div_img_real"><img src="img/survol_img1.jpg" alt=""></div>
+                        <div class="div_img_real"><img src="img/survol_img2.jpg" alt=""></div>
+                        <div class="div_img_real"><img src="img/survol_img3.jpg" alt=""></div>
+                        <div class="div_img_real"><img src="img/survol_img4.jpg" alt=""></div>
+                    </div>
+                </div>
             </div>
             <div id="slide5">
                 <div class="slide_inside" id="slide_contact">
