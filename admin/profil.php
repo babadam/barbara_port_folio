@@ -10,7 +10,7 @@ if(isset($_SESSION['connexion']) && $_SESSION['connexion']=='connecté'){
     // echo $_SESSION['connexion']; test fonctionne
 
 }else{ // l'utilisateur n'est pas connecté
-    header('location: connexionAdmin.php');
+    header('location: index.php');
 } // fun du if isset
 
 

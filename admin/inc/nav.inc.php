@@ -35,7 +35,7 @@
                      <!-- bouton déconnexion -->
                      <div class="nav navbar-nav navbar-right">
                          <!-- <ul class="nav navbar-nav"> -->
-                            <a class="navbar-brand" href="connexionAdmin.php?action=deconnexion"><span class="glyphicon glyphicon-off" aria-hidden="true"></a>
+                            <a class="navbar-brand" href="index.php?action=deconnexion"><span class="glyphicon glyphicon-off" aria-hidden="true"></a>
 
                      </div>
                  </div>

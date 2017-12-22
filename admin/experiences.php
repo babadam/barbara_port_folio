@@ -9,7 +9,7 @@ if(isset($_SESSION['connexion']) && $_SESSION['connexion']=='connecté'){ // si 
 
     // echo $_SESSION['connexion'];
 }else{ // l'utilisateur n'est pas connecté
-    header('location: connexionAdmin.php');
+    header('location: index.php');
 }
 
 
@@ -17,7 +17,7 @@ $sql = $pdoCV -> query("SELECT * FROM t_utilisateurs WHERE id_utilisateur = '$id
 $ligne_utilisateur = $sql -> fetch(PDO::FETCH_ASSOC);
 
 if(isset($_POST['e_titre'])){ // Si on a posté une nouvelle compétence
-    echo 'rentre dans ligne 6 => ok';
+    // echo 'rentre dans ligne 6 => ok';
     if(!empty($_POST['e_titre']) && !empty($_POST['e_soustitre']) && !empty($_POST['e_dates']) && !empty($_POST['e_description'])){ // Si compétence n'est pas vide
         $titre = addslashes($_POST['e_titre']);
         $sousTitre = addslashes($_POST['e_soustitre']);
@@ -29,7 +29,9 @@ if(isset($_POST['e_titre'])){ // Si on a posté une nouvelle compétence
 
     }// ferme if n'est pas vide
 }
-
+echo '<pre>';
+print_r($_POST);
+echo '</pre>';
 // Supression d'une compétence
 if(isset($_GET['id_experience'])){
  // on récupère la compétence par son ID dans l'url
