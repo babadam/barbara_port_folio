@@ -206,7 +206,7 @@ h1 span{
     margin: auto;
     margin-top: 8vh;
     background-color: rgba(138, 165, 159, 0.6);
-    height: 58vh;
+    /*height: 58vh;*/
 }
 .container-form .text-form{
     width: 60%;
