@@ -9,13 +9,27 @@ if(isset($_SESSION['connexion']) && $_SESSION['connexion']=='connecté'){ // si 
 
     // echo $_SESSION['connexion'];
 }else{ // l'utilisateur n'est pas connecté
-    header('location: connexionAdmin.php');
+    header('location: index.php');
 }
-
 
 
 $sql = $pdoCV -> query("SELECT * FROM t_utilisateurs WHERE id_utilisateur = '$id_utilisateur'");
 $ligne_utilisateur = $sql -> fetch(PDO::FETCH_ASSOC);
+
+if(isset($_POST['r_titre'])){ // Si on a posté une nouvelle compétence
+    echo 'rentre dans ligne 6 => ok';
+    if(!empty($_POST['r_titre']) && !empty($_POST['r_soustitre']) && !empty($_POST['r_dates']) && !empty($_POST['r_description'])){ // Si compétence n'est pas vide
+        $titre = addslashes($_POST['r_titre']);
+        $sousTitre = addslashes($_POST['r_soustitre']);
+        $dates = addslashes($_POST['r_dates']);
+        $description = addslashes($_POST['r_description']);
+        $photo = addslashes($_POST['r_photo']);
+        $pdoCV -> exec("INSERT INTO t_realisations (r_titre, r_soustitre, r_dates, r_description, r_photo, utilisateur_id) VALUES ('$titre', '$sousTitre', '$dates', '$description', '$photo', '$id_utilisateur')"); // mettre $id_utilisateur quand on l'aura dans la variable de session
+        header("location:realisations.php");
+        exit();
+
+    }// ferme if n'est pas vide
+}
 
 
 
@@ -35,6 +49,7 @@ if(isset($_GET['id_realisation'])){
 
 include('inc/header.inc.php');
 include('inc/nav.inc.php');
+
 ?>
 <div class="container">
     <div class="row">
@@ -107,6 +122,10 @@ include('inc/nav.inc.php');
                         <div class="form-group">
                             <label for="r_description">Description</label>
                             <textarea class="form-control" id="editor1" name="r_description" placeholder="Décrire la formation"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="r_photo">Photo</label>
+                            <input type="file" id="r_photo" name="r_photo">
                         </div>
                         <script>
                                 CKEDITOR.replace('editor1');

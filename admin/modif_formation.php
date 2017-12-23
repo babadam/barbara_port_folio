@@ -12,20 +12,20 @@ if(isset($_SESSION['connexion']) && $_SESSION['connexion']=='connecté'){ // si 
 
     echo $_SESSION['connexion'];
 }else{ // l'utilisateur n'est pas connecté
-    header('location: connexionAdmin.php');
+    header('location: index.php');
 }
 
 
 // mise à jour d'une compétence
 if(isset($_POST['f_titre'])){ // Si on a posté une nouvelle compétence
     echo 'rentre dans ligne 6 => ok';
-    if(!empty($_POST['f_titre']) && !empty($_POST['f_soustitre']) && !empty($_POST['f_dates']) && !empty($_POST['f_description']) && !empty($_POST['id_formation'])){ // Si compétence n'est pas vide
+    if(!empty($_POST['f_titre']) && !empty($_POST['f_soustitre']) && !empty($_POST['f_dates']) && !empty($_POST['id_formation'])){ // Si compétence n'est pas vide
         $titre = addslashes($_POST['f_titre']);
         $sousTitre = addslashes($_POST['f_soustitre']);
         $dates = addslashes($_POST['f_dates']);
         $description = addslashes($_POST['f_description']);
         $id_formation = addslashes($_POST['id_formation']);
-        $pdoCV -> exec("UPDATE t_formation SET f_titre = '$titre', f_soustitre = '$sousTitre', f_dates = '$dates', f_description = '$description' WHERE id_formation = '$id_formation'");
+        $pdoCV -> exec("UPDATE t_formations SET f_titre = '$titre', f_soustitre = '$sousTitre', f_dates = '$dates', f_description = '$description' WHERE id_formation = '$id_formation'");
         header('location: formations.php');
         exit();
     }
@@ -35,7 +35,7 @@ if(isset($_POST['f_titre'])){ // Si on a posté une nouvelle compétence
 
 // je récupère la compétence
 $id_formation = $_GET['id_formation']; // par l'id et get
-$sql = $pdoCV -> query("SELECT * FROM t_formation WHERE id_formation = '$id_formation'"); // la requete eest égale à l'ID
+$sql = $pdoCV -> query("SELECT * FROM t_formations WHERE id_formation = '$id_formation'"); // la requete eest égale à l'ID
 $ligne_formation = $sql -> fetch();
 
 $sql = $pdoCV -> query("SELECT * FROM t_utilisateurs WHERE id_utilisateur = '$id_utilisateur'");

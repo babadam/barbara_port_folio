@@ -9,7 +9,7 @@ if(isset($_SESSION['connexion']) && $_SESSION['connexion']=='connecté'){ // si 
 
     // echo $_SESSION['connexion'];
 }else{ // l'utilisateur n'est pas connecté
-    header('location: connexionAdmin.php');
+    header('location: index.php');
 }
 
 
@@ -18,12 +18,12 @@ $ligne_utilisateur = $sql -> fetch(PDO::FETCH_ASSOC);
 
 if(isset($_POST['f_titre'])){ // Si on a posté une nouvelle compétence
     echo 'rentre dans ligne 6 => ok';
-    if(!empty($_POST['f_titre']) && !empty($_POST['f_soustitre']) && !empty($_POST['f_dates']) && !empty($_POST['f_description'])){ // Si compétence n'est pas vide
+    if(!empty($_POST['f_titre']) && !empty($_POST['f_soustitre']) && !empty($_POST['f_dates'])){ // Si compétence n'est pas vide
         $titre = addslashes($_POST['f_titre']);
         $sousTitre = addslashes($_POST['f_soustitre']);
         $dates = addslashes($_POST['f_dates']);
         $description = addslashes($_POST['f_description']);
-        $pdoCV -> exec("INSERT INTO t_formation (f_titre, f_soustitre, f_dates, f_description, utilisateur_id) VALUES ('$titre', '$sousTitre', '$dates', '$description', '$id_utilisateur')"); // mettre $id_utilisateur quand on l'aura dans la variable de session
+        $pdoCV -> exec("INSERT INTO t_formations (f_titre, f_soustitre, f_dates, f_description, utilisateur_id) VALUES ('$titre', '$sousTitre', '$dates', '$description', '$id_utilisateur')"); // mettre $id_utilisateur quand on l'aura dans la variable de session
         header("location:formations.php");
         exit();
 
@@ -34,12 +34,12 @@ if(isset($_POST['f_titre'])){ // Si on a posté une nouvelle compétence
 if(isset($_GET['id_formation'])){
  // on récupère la compétence par son ID dans l'url
     $efface = $_GET['id_formation'];
-    $sql = " DELETE FROM t_formation WHERE id_formation = '$efface' ";
+    $sql = " DELETE FROM t_formations WHERE id_formation = '$efface' ";
     $pdoCV ->query($sql);
     header("location: formations.php");
 } // ferme le if isset supression
 
-    $sql = $pdoCV -> prepare("SELECT * FROM t_formation WHERE utilisateur_id = '$id_utilisateur'");
+    $sql = $pdoCV -> prepare("SELECT * FROM t_formations WHERE utilisateur_id = '$id_utilisateur'");
     $sql -> execute();
     $nbr_formations =  $sql -> rowCount();
 

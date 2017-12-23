@@ -12,13 +12,15 @@ body{
 /********** TITRE TAILLE MAX ********/
 h2{
     text-align: center;
-    padding-top: 3%;
+    padding-top: 9vh;
     font-size: 2.5em;
+    font-family: 'Rubik Mono One', sans-serif;
 }
 h3{
     text-align: center;
     border-bottom: 1px solid black;
     font-size: 1.5em;
+    font-family: 'Rubik Mono One', sans-serif;
 }
 
 /********** FIN TITRE TAILLE MAX ********/
@@ -46,13 +48,13 @@ main{
     margin: 0 auto;
     width:100%;
 }
-#slide1, #slide2, #slide3, #slide4{
+#slide1, #slide2, #slide3, #slide4, #slide5{
     /*float: left;*/
     width: 100%;
     min-height: 100vh;
 }
 #slide1{
-    background: url(../img/slide1-bg.jpg) center 0 no-repeat fixed;
+    background: url(../img/slide12-bg.jpg) center 0 no-repeat fixed;
     position: relative;
     z-index: 0;
 }
@@ -61,10 +63,13 @@ main{
     background: white;
 }
 #slide3{
-    background:url(../img/slide3-bg.jpg) center 0 no-repeat fixed;
+    background:url(../img/slide7-bg.jpg) center 0 no-repeat fixed;
 }
 #slide4{
-    background: darkgray;
+    background: #B7BFB9;
+}
+#slide5{
+    background:url(../img/slide13-bg.jpg) center 0 no-repeat fixed;
 }
 
 .slide_inside {
@@ -72,7 +77,7 @@ main{
     height: 100vh;
 	margin: 0 auto;
     position: relative;
-} 
+}
 
 
 /********** FIN MAIN TAILLE MAX **********/
@@ -80,9 +85,9 @@ main{
 /********** DEBUT PAGE ACCUEIL TAILLE MAX ********/
 .info{
     background: rgba(255, 255, 255, 0.6);
-    width: 30%;
+    width: 50%;
     position: absolute;
-    margin: 5%;
+    margin: 8% 23%;
     padding: 2%;
     text-align: center;
     border-radius: 10px;
@@ -90,53 +95,255 @@ main{
 h1{
     text-align: center;
     font-size: 3em;
+    font-family: 'Rubik Mono One', sans-serif;
+}
+h1 span{
+    color: #879650;
 }
 /********** FIN PAGE ACCUEIL TAILLE MAX ********/
 
 /********** DEBUT PAGE COMPETENCE **********/
-#slide_competence{
-    background-color: lightgray;
-}
-.competence{
-    width: 30%;
-    margin: 1em;
-    border: 4px solid;
-    height: 100px;
-    float: left;
-    margin-top: 10%;
-}
 
-.competence .titre-front{
-    color: tomato;
-}
-.competence .titre-dev{
-    color: indianred;
-}
-.competence .titre-framework{
-    color: crimson;
-}
-.logo{
-    border: 1px solid;
-}
-#slide_competence .logo img{
-    width: 5%;
-}
+.container-skillbar {
+		width:80%;
+		padding-top:12vh;
+        margin: auto;
+	}
+	.skillbar {
+		position:relative;
+		display:block;
+		margin-bottom:5vh;
+		width:100%;
+		background:#efefef;
+		height:4vh;
+		border-radius:3px;
+		-moz-border-radius:3px;
+		-webkit-border-radius:3px;
+		-webkit-transition:0.4s linear;
+		-moz-transition:0.4s linear;
+		-ms-transition:0.4s linear;
+		-o-transition:0.4s linear;
+		transition:0.4s linear;
+		-webkit-transition-property:width, background-color;
+		-moz-transition-property:width, background-color;
+		-ms-transition-property:width, background-color;
+		-o-transition-property:width, background-color;
+		transition-property:width, background-color;
+	}
+
+	.skillbar-title {
+		position:absolute;
+		top:0;
+		left:0;
+		width:110px;
+		font-weight:bold;
+		font-size:0.9em;
+		color:#fff;
+		background:#6adcfa;
+		-webkit-border-top-left-radius:3px;
+		-webkit-border-bottom-left-radius:4px;
+		-moz-border-radius-topleft:3px;
+		-moz-border-radius-bottomleft:3px;
+		border-top-left-radius:3px;
+		border-bottom-left-radius:3px;
+	}
+
+	.skillbar-title span {
+		display:block;
+		background:rgba(0, 0, 0, 0.15);
+		padding:0 20px;
+		height:4vh;
+		line-height:4vh;
+		-webkit-border-top-left-radius:3px;
+		-webkit-border-bottom-left-radius:3px;
+		-moz-border-radius-topleft:3px;
+		-moz-border-radius-bottomleft:3px;
+		border-top-left-radius:3px;
+		border-bottom-left-radius:3px;
+	}
+
+	.skillbar-bar {
+		height:4vh;
+		width:0px;
+		border-radius:3px;
+		-moz-border-radius:3px;
+		-webkit-border-radius:3px;
+	}
+
+	.skillbar-percent {
+		position:absolute;
+		right:1vw;
+		top:0;
+		font-size:1em;
+		height:4vh;
+		line-height:4vh;
+		color:gray;
+	}
+
+    .skillbar-title-HTML5, .skillbar-bar-HTML5{
+        background-color: #DD1E2F;
+    }
+    .skillbar-title-CSS3, .skillbar-bar-CSS3{
+        background-color: #EBB035;
+    }
+    .skillbar-title-JQUERY, .skillbar-bar-JQUERY{
+        background-color: #06A2CB;
+    }
+    .skillbar-title-PHP, .skillbar-bar-PHP{
+        background-color: mistyrose;
+    }
+    .skillbar-title-MySQL, .skillbar-bar-MySQL{
+        background-color: green;
+    }
+    .skillbar-title-BOOTSTRAP, .skillbar-bar-BOOTSTRAP{
+        background-color: purple;
+    }
 /********** FIN PAGE COMPETENCE **********/
 
-/********* DEBUT PAGE CONTACT TAILLE MAX *******/
+/********* DEBUT PAGE FORMATION TAILLE MAX *******/
+#slide_formation{
+    width: 60%;
+}
+.container-formation{
+    margin-top: 8vh;
+}
+.formation{
+    margin-top: 2vh;
+    background-color: white;
+    background: rgba(255, 0, 0, 0.5);
+}
+.date_formation{
+    width: 40%;
+    background: rgba(255, 0, 0, 0.5);
+    text-align: center;
+    display: inline-block;
+}
+.date_formation p{
+    width: 100%;
+    padding: 15%;
+    font-family: 'Rubik Mono One', sans-serif;
+    color: #B7BFB9;
+    text-shadow: 1px 1px 2px black;
+    font-size: 1.5em;
+}
+/* #date_formation_enfant p, #date_formation_bac p{
+    padding: 15%;
+} */
+.description_form{
+    width: 60%;
+    float: right;
+    padding-top: 3.5%;
+    padding-left: 7%;
+}
 
+/********* FIN PAGE FORMATION TAILLE MAX *******/
+
+/********* DEBUT PAGE REALISATION **********/
+#slide_realisation{
+    width: 70%;
+}
+.imgEffets{
+    width: 41%;
+    height: 70vh;
+    margin-left: 30%;
+    margin-top: 5%;
+}
+.imgEffets li{
+    list-style: none;
+    float: left;
+    width: 49%;
+    height: 30vh;
+    margin: 0.5%;
+}
+.imgEffets li:nth-child(3){
+	clear: both;
+}
+.imgEffets img{
+    /* position: absolute; */
+    /* z-index: 1; */
+    height: 30vh;
+    box-shadow: 0 0 3px black;
+    transition: .5s cubic-bezier(0,3,.4,1);
+}
+.imgEffets li:hover img{
+	z-index: 2;
+	transform: scale(1.3);
+	box-shadow: 0 0 10px black;
+}
+.imgEffets:hover li:not(:hover){
+	filter: grayscale(1) blur(8px);
+}
+/********* FIN PAGE REALISATION *********/
+
+/********* DEBUT PAGE CONTACT TAILLE MAX *******/
+.container-form{
+    width: 70%;
+    margin: auto;
+    margin-top: 8vh;
+    background-color: rgba(138, 165, 159, 0.6);
+    height: 58vh;
+}
+.container-form .text-form{
+    width: 60%;
+    margin: auto;
+    padding-top: 4vh;
+}
+.container-form .text-form p{
+    text-align: center;
+}
+.container-form input, .container-form textarea{
+    color: black;
+    border: none;
+    padding: 1em;
+    margin: 2%;
+    margin-left: 3%;
+    width: 90%;
+}
+.container-form #btn-form{
+    width: 93.5%;
+    margin-left: 1.7vw;
+    cursor: pointer;
+    color: black;
+}
+.container-form #btn-form:hover{
+    background-color: #B0B168;
+    /* transition: 1s; */
+}
+.group-input-1, .group-input-2{
+    width: 50%;
+    float: left;
+    margin-top: 3vh;
+}
+.group-input-1{
+    width: 48%;
+    margin-left: 1vw;
+}
+.group-input-1 input{
+    margin-bottom: 3.3vh;
+}
+form span.error{
+    color: red;
+}
 
 /********** FIN PAGE CONTACT TAILLE MAX **************/
 
 /********** DEBUT FOOTER ********/
 footer{
-    background: cadetblue;
+    background: #8AA59F;
     height: 50px;
 }
 /********** FIN FOOTER ********/
 
 
 /*************** RESPONSIVE ***************/
+@media screen and (max-width:1085px){
+    .container-form{
+        width: 90%;
+    }
+    #slide_formation{
+        width: 90%;
+    }
+}
  @media screen and (max-width:992px){
     main{
         width: 100%;
@@ -210,10 +417,14 @@ footer{
         font-size: 2em;
     }
     /* Fin menu burger */
+    /* Classe gerant presentation page accueil */
     .info{
         width: 90%;
-        margin-top: 15%;
-
+        margin: 27% 6%;
+    }
+    /* Container page competence */
+    #slide_competence{
+        width: 100%;
     }
 
 }
@@ -231,9 +442,60 @@ footer{
     section{
         margin: 0;
     }
-    .info{
-        width: 90%;
-        margin-top: 15%;
+    .skillbar-bar-HTML5, .skillbar-bar-CSS3, .skillbar-bar-JQUERY, .skillbar-bar-PHP, .skillbar-bar-MySQL, .skillbar-bar-BOOTSTRAP{
+        background-color: #efefef;
+    }
+    /*Formulaire contact */
+    #slide_contact{
+        width: 100%;
+    }
+    .container-form{
+        width: 100%;
+        height: 65vh;
+    }
+    .container-form .text-form{
+        width: 92%;
+    }
+    .group-input-1, .group-input-2{
+        float: initial;
+        width: 100%;
+        margin-top: 1%;
+    }
+    .group-input-1 input{
+        margin-bottom: 1vh;
+    }
+    /*Page expérience et formation*/
+    .date_formation{
+        width: 100%;
+    }
+    .date_formation p{
+        padding : 2%;
+        font-size: 1em;
+    }
+    .description_form {
+        padding: 2%;
+        text-align: center;
+        float: initial;
+        width: 100%;
+    }
+    #date_formation_enfant p, #date_formation_bac p{
+        padding: 1%;
+    }
+}
+
+
+
+
+@media screen and (max-width:460px){
+    h2{
+        font-size: 1.5em;
+    }
+    #slide_competence{
+        width: 100%;
+    }
+    .container-skillbar {
+    width: 92%;
+    padding-top: 8vh;
     }
 }
 /*entre 0px et 580px le main fera 100% ainsi que les zones .a .b .c .d*/

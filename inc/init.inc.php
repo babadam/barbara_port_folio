@@ -18,13 +18,17 @@ try {
     die('Erreur : ' . $e->getMessage());
 }
 
-// requete permettant de récupérer les infos de l'utilisateur
-$sql = $pdoCV -> query("SELECT * FROM t_utilisateurs WHERE id_utilisateur = '1'");
+// requete permettant de récupérer mes infos
+$sql = $pdoCV -> query("SELECT * FROM t_utilisateurs");
 $ligne_utilisateur = $sql -> fetch(PDO::FETCH_ASSOC);
 
-// requete permettant de récupérer les compétences de l'utilisateur
-$competences = $pdoCV -> query("SELECT * FROM t_competences WHERE utilisateur_id = 1");
+// requete permettant de récupérer mes compétences
+$competences = $pdoCV -> query("SELECT * FROM t_competences");
 $ligne_competence = $competences -> fetchAll(PDO::FETCH_ASSOC);
+
+// requete permettent de récupérer mes expériences et Formations
+$formations = $pdoCV -> query("SELECT * FROM t_formations");
+$ligne_formation = $formations -> fetchAll(PDO::FETCH_ASSOC);
 
 
 
