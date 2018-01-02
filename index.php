@@ -42,11 +42,11 @@ if(!empty($_POST)){
     </head>
     <body>
         <nav id="main-nav">
-            <a id="toggle-nav" href="#"><i class="fa fa-bars" aria-hidden="true"></i></a>
+			<a id="toggle-nav" href="#"><i class="fa fa-bars" aria-hidden="true"></i></a>
             <ul id="toggle-ul">
                 <a href="#slide2" class="toggle-a js-scrollTo"><li>Compétences</li></a>
-                <a href="#slide3" class="toggle-a js-scrollTo"><li>Réalisations</li></a>
-                <a href="#slide4" class="toggle-a js-scrollTo"><li>Experiences & Formations</li></a>
+                <a href="#slide4" class="toggle-a js-scrollTo"><li>Réalisations</li></a>
+                <a href="#slide3" class="toggle-a js-scrollTo"><li>Experiences & Formations</li></a>
                 <a href="#slide5" class="toggle-a js-scrollTo"><li>Contact</li></a>
             </ul>
         </nav>
@@ -98,10 +98,10 @@ if(!empty($_POST)){
                                     <p><?= $ligne_formation[$i]['f_dates'] ?></p>
                                 </div>
                                 <div class="description_form">
-                                    <span><?= $ligne_formation[$i]['f_titre'] ?></span>
-                                    <p><?= $ligne_formation[$i]['f_soustitre'] ?></p>
+                                   <span><?= $ligne_formation[$i]['f_titre'] ?></span>
+                                   <p><?= $ligne_formation[$i]['f_soustitre'] ?></p>
                                     <p><?= $ligne_formation[$i]['f_description'] ?></p>
-                                </div>
+						         </div>
                             </div>
                         <?php } ?>
                     </div>
@@ -111,24 +111,24 @@ if(!empty($_POST)){
                 <div class="slide_inside" id="slide_realisation">
                     <h2>Réalisations</h2>
                     <section id="image">
-                        <article class="imgFlex">
+                        <div class="imgFlex">
                             <figure>
                                 <img src="img/real1.png" alt="licorne1">
-                                <figcaption>Lulu Confetty</figcaption>
+                                <figcaption>HTML - CSS - Jquery - PHP - PHP orienté objet - MySql</figcaption>
                             </figure>
                             <figure>
                                 <img src="img/real2.png" alt="lircorne2">
-                                <figcaption>Lapillon Magik</figcaption>
+                                <figcaption>Exercice d'intégration HTML - CSS</figcaption>
                             </figure>
-                            <figure>
-                                <img src="img/unicorns/photo3.jpg" alt="licorne3">
-                                <figcaption>El Ninjacorn</figcaption>
+                            <figure class="figDroite">
+                                <img src="img/real3.png" alt="licorne3">
+                                <figcaption>Premier site en HTML - CSS</figcaption>
                             </figure>
-                            <figure>
-                                <img src="img/unicorns/photo4.jpg" alt="licorne4">
-                                <figcaption>Sweety Candy</figcaption>
-                            </figure>
-                        </article>
+                            <!--<figure>-->
+                            <!--    <img src="img/real1.png" alt="licorne4">-->
+                            <!--    <figcaption>Sweety Candy</figcaption>-->
+                            <!--</figure>-->
+                        </div>
                     </section>
                 </div>
             </div>
@@ -164,8 +164,8 @@ if(!empty($_POST)){
             </div>
         </main>
             <footer>
-                <p><i class="fa fa-copyright" aria-hidden="true"></i><?= ' '. $ligne_utilisateur['prenom'] . ' ' . $ligne_utilisateur['nom'] . ' ' . date('Y') ?></p>
-                <p> <a href="admin/index.php">Backoffice</a></p>
+                <p id="footer-copyright"><i class="fa fa-copyright" aria-hidden="true"></i><?= ' '. $ligne_utilisateur['prenom'] . ' ' . $ligne_utilisateur['nom'] . ' ' . date('Y') ?></p>
+                <p id="link-backoffice"><a href="admin/index.php">Backoffice</a></p>
             </footer>
         <script type="text/javascript" src="js/main.js"></script>
     </body>
