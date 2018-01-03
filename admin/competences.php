@@ -15,16 +15,18 @@ if(isset($_SESSION['connexion']) && $_SESSION['connexion']=='connecté'){
 
 
 if(isset($_POST['competence'])){ // Si on a posté une nouvelle compétence
-    echo 'rentre dans ligne 6 => ok';
+    //echo 'rentre dans ligne 6 => ok';
     if(!empty($_POST['competence']) && !empty($_POST['c_niveau'])){ // Si compétence n'est pas vide
-        echo 'rentre dans $_POST pas vide IF ligne 8';
+        //echo 'rentre dans $_POST pas vide IF ligne 8';
         $competence = addslashes($_POST['competence']);
         $c_niveau = addslashes($_POST['c_niveau']);
         $categorie = addslashes($_POST['categorie']);
         $pdoCV -> exec("INSERT INTO t_competences (id_competence, competence, c_niveau, categorie, utilisateur_id) VALUES (NULL, '$competence', '$c_niveau', '$categorie', $id_utilisateur)"); // mettre $id_utilisateur quand on l'aura dans la variable de session
         header("location:competences.php");
         exit();
-
+        // echo '<pre>';
+        // print_r($_POST);
+        // echo '</pre>';
     }// ferme if n'est pas vide
 
 } // ferme le if isset insertion
@@ -97,7 +99,7 @@ include('inc/nav.inc.php');
                         <p>Insertion d'une competence</p>
                 </div>
                 <div class="panel-body">
-                    <form action="competences.php" method="post">
+                    <form action="" method="post">
                         <div class="form-group">
                             <label for="competence">Compétence</label>
                             <input type="text" class="form-control" id="competence" name="competence" placeholder="Insérez votre competence">
