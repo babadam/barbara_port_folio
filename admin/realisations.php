@@ -10,6 +10,7 @@ if(isset($_SESSION['connexion']) && $_SESSION['connexion']=='connecté'){ // si 
 }
 $sql = $pdoCV -> query("SELECT * FROM t_utilisateurs WHERE id_utilisateur = '$id_utilisateur'");
 $ligne_utilisateur = $sql -> fetch(PDO::FETCH_ASSOC);
+
 if(isset($_POST['r_titre'])){ // Si on a posté une nouvelle compétence
     echo 'rentre dans ligne 6 => ok';
     if(!empty($_POST['r_titre']) && !empty($_POST['r_soustitre']) && !empty($_POST['r_dates']) && !empty($_POST['r_description'])){ // Si compétence n'est pas vide
@@ -95,7 +96,7 @@ include('inc/header.inc.php');
                         <p>Insertion d'une réalisation</p>
                 </div>
                 <div class="panel-body">
-                    <form action="realisations.php" method="post">
+                    <form action="realisations.php" method="post" enctype="multipart/form-data">
                         <div class="form-group">
                             <label for="r_titre">Titre</label>
                             <input type="text" class="form-control" id="r_titre" name="r_titre" placeholder="Titre">

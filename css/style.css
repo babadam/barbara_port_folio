@@ -7,19 +7,23 @@
 }
 
 body{
-    font-family: 'Merriweather Sans', sans-serif;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
 }
 /********** TITRE TAILLE MAX ********/
 h2{
+    font-size: 1.8em;
+    padding-top: 2vh;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    text-align: center;
+}
+h3{
+    /* text-align: center;
+    border-bottom: 1px solid black;
+    font-size: 1.5em;
+    font-family: 'Rubik Mono One', sans-serif; */
     text-align: center;
     padding-top: 9vh;
     font-size: 2.5em;
-    font-family: 'Rubik Mono One', sans-serif;
-}
-h3{
-    text-align: center;
-    border-bottom: 1px solid black;
-    font-size: 1.5em;
     font-family: 'Rubik Mono One', sans-serif;
 }
 
@@ -33,10 +37,8 @@ h3{
     top: 0;
     box-shadow: 0px 2px 11px 1px rgba(0,0,0,0.75);
     z-index: 2;
-    font-family: 'Fredericka the Great', cursive;
-}
-
-#main-nav ul {
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
     list-style-type: none;
 }
 /********** FIN NAV TAILLE MAX *******/
@@ -57,14 +59,13 @@ main{
     z-index: 0;
 }
 #slide2{
-    /*background:url(../img/slide2-bg.jpg) center 0 no-repeat fixed;*/
-    background: white;
+    background: #FDEFED;
 }
 #slide3{
-    background:url(../img/slide7-bg.jpg) center 0 no-repeat fixed;
+    background:url(../img/slide19-bg.jpg) center 0 no-repeat fixed;
 }
 #slide4{
-    background: #B7BFB9;
+    background: #DFC8C5;
 }
 #slide5{
     background:url(../img/slide13-bg.jpg) center 0 no-repeat fixed;
@@ -87,9 +88,25 @@ main{
     position: absolute;
     margin: 8% 23%;
     padding: 2%;
-    text-align: center;
     border-radius: 10px;
 }
+.info p{
+    font-size: 1.5em;
+    text-align: center
+}
+.info-gauche, .info-droite{
+    padding-top: 2vh;
+}
+.info-gauche{
+    border: 2px solid red;
+    text-align: center;
+    padding-top: 2vh;
+}
+.info-droite{
+    border: 2px solid blue;
+    text-align: center;
+}
+
 h1{
     text-align: center;
     font-size: 3em;
@@ -112,7 +129,7 @@ h1 span{
 		display:block;
 		margin-bottom:5vh;
 		width:100%;
-		background:#efefef;
+		background:#fff;
 		height:4vh;
 		border-radius:3px;
 		-moz-border-radius:3px;
@@ -208,11 +225,11 @@ h1 span{
 .formation{
     margin-top: 2vh;
     background-color: white;
-    background: rgba(255, 0, 0, 0.5);
+    background: rgba(221, 179, 172, 0.8);
 }
 .date_formation{
     width: 40%;
-    background: rgba(255, 0, 0, 0.5);
+    background: rgba(158, 0, 0, 0.5);
     text-align: center;
     display: inline-block;
 }
@@ -220,7 +237,7 @@ h1 span{
     width: 100%;
     padding: 15%;
     font-family: 'Rubik Mono One', sans-serif;
-    color: #B7BFB9;
+    color: white;
     text-shadow: 1px 1px 2px black;
     font-size: 1.5em;
 }
@@ -386,8 +403,8 @@ footer a{
     figcaption{
         width: 100%;
     }
-    
-    
+
+
 }
  @media screen and (min-width:780px){
     main{
@@ -495,7 +512,7 @@ footer a{
         margin-top: 0;
         background-color: transparent;
     }
-    #h2_slide5{
+    #h3_slide5{
         padding-top: 4vh;
     }
     .container-form .text-form{

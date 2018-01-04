@@ -36,45 +36,54 @@ if(!empty($_POST)){
         <meta name="description" content="Site Cv Barbara Tousverts : développeuse - intégratrice web junior">
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+        <script src="js/jquery-3.2.1.min.js"></script>
         <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
         <link href="https://fonts.googleapis.com/css?family=Quattrocento+Sans|Rubik+Mono+One|Playfair+Display|Merriweather+Sans" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans|Yanone+Kaffeesatz" rel="stylesheet">
+
+
     </head>
     <body>
         <nav id="main-nav">
 			<a id="toggle-nav" href="#"><i class="fa fa-bars" aria-hidden="true"></i></a>
-            <ul id="toggle-ul">
+            <div id="toggle-ul">
                 <a href="#slide2" class="toggle-a js-scrollTo"><li>Compétences</li></a>
                 <a href="#slide4" class="toggle-a js-scrollTo"><li>Réalisations</li></a>
                 <a href="#slide3" class="toggle-a js-scrollTo"><li>Experiences & Formations</li></a>
                 <a href="#slide5" class="toggle-a js-scrollTo"><li>Contact</li></a>
-            </ul>
+            </div>
         </nav>
         <main>
             <div id="slide1">
                 <div class="slide_inside">
                     <div class="info">
                         <h1>Barbara Tous<span>verts</span> </h1>
-                        <p>
-                            Agée de 26 ans, je suis actuellement en formation de développement et d'intégration web depuis sept mois. <br>
-                        </p>
-                         <div class="phone">
+                        <h2>Développeuse - intégratrice web : je recherche un stage</h2>
+                        <div class="info-gauche">
+                            <p class="p-info"> Agée de 26 ans, je suis actuellement en formation de développement et d'intégration web depuis sept mois.</p>
+                        </div>
+                        <div class="info-droite">
+                            <div class="phone">
                                 <i class="fa fa-phone" aria-hidden="true"></i>
                                 <p>06 63 57 70 89</p>
                             </div>
                             <div class="email">
                                 <i class="fa fa-envelope-o" aria-hidden="true"></i>
                                 <p>barbara.tousverts@live.fr</p>
+                            </div>
+                            <a href="#"><i class="fa fa-github" aria-hidden="true"></i></a>
+                            <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                            <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+
                         </div>
-                        <p><a href="#slide5" class="js-scrollTo">Contactez - moi</a></p>
+                        <p><a href="#slide5" class="js-scrollTo">contactez-moi</a></p>
                     </div>
                     <!-- <p class="typed"><span id="holder"></span><span class="blinking-cursor">|</span></p> -->
                 </div>
             </div>
             <div id="slide2">
                 <div class="slide_inside" id="slide_competence">
-                    <h2>Compétences</h2>
+                    <h3>Compétences</h3>
 
                     <div class="container-skillbar">
                            <?php
@@ -90,7 +99,7 @@ if(!empty($_POST)){
             </div>
             <div id="slide3">
                 <div class="slide_inside" id="slide_formation">
-                    <h2>Experiences & formations</h2>
+                    <h3>Experiences & formations</h3>
                     <div class="container-formation">
                         <?php
                          for($i=0; $i<count($ligne_formation); $i++){?>
@@ -110,8 +119,8 @@ if(!empty($_POST)){
             </div>
             <div id="slide4">
                 <div class="slide_inside" id="slide_realisation">
-                    <h2>Réalisations</h2>
                     <section id="image">
+                        <h3>Réalisations</h3>
                         <div class="imgFlex">
                             <figure>
                                 <img src="img/real1.png" alt="licorne1">
@@ -125,17 +134,13 @@ if(!empty($_POST)){
                                 <img src="img/real3.png" alt="licorne3">
                                 <figcaption>Premier site en HTML - CSS</figcaption>
                             </figure>
-                            <!--<figure>-->
-                            <!--    <img src="img/real1.png" alt="licorne4">-->
-                            <!--    <figcaption>Sweety Candy</figcaption>-->
-                            <!--</figure>-->
                         </div>
                     </section>
                 </div>
             </div>
             <div id="slide5">
                 <div class="slide_inside" id="slide_contact">
-                    <h2 id="h2_slide5">Me contacter</h2>
+                    <h3 id="h3_slide5">Me contacter</h3>
 					<div class="container-form" id="container-form">
                         <div class="text-form">
                             <p>Pour plus d'informations, n'hésitez pas à me contactez et je vous répondrai dans les meilleurs délais.</p>
@@ -158,7 +163,7 @@ if(!empty($_POST)){
                                  <span class="error"><?php if (isset($erreurmessage)) echo $erreurmessage; ?></span>
                                  <textarea name="message" rows="8" cols="40" id=message placeholder="Message"></textarea>
                              </div>
-                            <input type="submit" name="" value="Envoyer" id="btn-form">
+                            <input type="submit" name="envoyer" value="Envoyer" id="btn-form">
 						</form>
 					</div>
                 </div>
@@ -168,6 +173,6 @@ if(!empty($_POST)){
                 <p id="footer-copyright"><i class="fa fa-copyright" aria-hidden="true"></i><?= ' '. $ligne_utilisateur['prenom'] . ' ' . $ligne_utilisateur['nom'] . ' ' . date('Y') ?></p>
                 <p id="link-backoffice"><a href="admin/index.php">Backoffice</a></p>
             </footer>
-        <script type="text/javascript" src="js/main.js"></script>
+        <script src="js/main.js"></script>
     </body>
 </html>

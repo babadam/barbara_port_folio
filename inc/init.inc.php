@@ -1,15 +1,12 @@
 <?php
 
 $msg_erreur='';
-$page='';
-
 
 // connexion BDD
 $hote='localhost';
 $bdd='site_cv';
 $utilisateur='root';
 $passe='';
-
 
 try {
     $pdoCV = new PDO('mysql:host='.$hote.';dbname='.$bdd, $utilisateur, $passe) or die(print_r($pdoCV->errorInfo()));
@@ -30,6 +27,5 @@ $ligne_competence = $competences -> fetchAll(PDO::FETCH_ASSOC);
 $formations = $pdoCV -> query("SELECT * FROM t_formations");
 $ligne_formation = $formations -> fetchAll(PDO::FETCH_ASSOC);
 
-
-
-//
+// --4. CHEMINS
+define('RACINE_SITE', '/barbara_port_folio');
