@@ -1,77 +1,127 @@
 <?php
+include('inc/init.inc.php');
 
-require_once('inc/init.inc.php');
-require_once('inc/fonctions.inc.php');
+if(isset($_SESSION['connexion']) && $_SESSION['connexion']=='connecté'){
+    $id_utilisateur = $_SESSION['id_utilisateur'];
+    $prenom = $_SESSION['prenom'];
+    $nom = $_SESSION['nom'];
+    $pseudo = $_SESSION['pseudo'];
 
+    // echo $_SESSION['connexion']; test fonctionne
 
-//Traitement pour la deconnexion de l'admin
-if(isset($_GET['action']) && $_GET['action'] == 'deconnexion'){
-    // unset($_SESSION['t_utilisateurs']);
-    // header('location: connexionAdmin.php');
-    $_SESSION['connexion']=''; // on vide les variables de SESSION
-    $_SESSION['id_utilisateur']='';
-    $_SESSION['prenom']='';
-    $_SESSION['nom']='';
-    $_SESSION['pseudo']='';
-
-    unset($_SESSION['connexion']); // connexion = name du bouton submit
-    session_destroy();
-    header('location: ../index.php');
-}
-
-
-if(isset($_POST['connexion'])){ // on envoie le form avec le name du boutton
-    $pseudo = addslashes($_POST['pseudo']);
-    $mdp = addslashes($_POST['mdp']);
-    $sql = $pdoCV -> prepare("SELECT * FROM t_utilisateurs WHERE pseudo = '$pseudo' && mdp='$mdp' ");
-    $sql -> execute();
-    $nbr_utilisateur = $sql -> rowCount(); // on compte si l'utilisateur est dans la table. 1 TRUE 0 FALSE
-
-    if($nbr_utilisateur == 0){ // L'utilisateur n'est pas dans la BDD
-        $msg_erreur .= '<div class="alert alert-danger col-md-offset-3 col-md-6"> Veuillez renseigner un pseudo et un mot de passe !</div>';
-    }else{ // L'utilisateur est dans la BDD
-        $ligne_utilisateur = $sql -> fetch(); // on cherche ses infos
-        $_SESSION['connexion']='connecté';
-        $_SESSION['id_utilisateur']=$ligne_utilisateur['id_utilisateur']; // on met dans la SESSION les infos de l'utilisateur
-        $_SESSION['prenom']=$ligne_utilisateur['prenom']; // on met dans la SESSION les infos de l'utilisateur
-        $_SESSION['nom']=$ligne_utilisateur['nom']; // on met dans la SESSION les infos de l'utilisateur
-        $_SESSION['pseudo']=$ligne_utilisateur['pseudo']; // on met dans la SESSION les infos de l'utilisateur
-
-        header('location: profil.php');
-    } // ferme le if else
-}// ferme le if isset
+}else{ // l'utilisateur n'est pas connecté
+    header('location: connexion.php');
+} // fun du if isset
 
 
 
-$page = 'Connexion';
-require_once('inc/header.inc.php');
+
+$resultat = $pdoCV -> query("SELECT * FROM t_utilisateurs WHERE id_utilisateur = '$id_utilisateur'");
+$ligne_utilisateur = $resultat -> fetch(PDO::FETCH_ASSOC);
+
+
+// requête pour compter les réalisations
+$resultat = $pdoCV -> prepare("SELECT * FROM t_realisations WHERE utilisateur_id = '$id_utilisateur'");
+$resultat -> execute();
+$nbr_realisations =  $resultat -> rowCount();
+
+// requête pour compter les formations
+$resultat = $pdoCV -> prepare("SELECT * FROM t_formations WHERE utilisateur_id = '$id_utilisateur'");
+$resultat -> execute();
+$nbr_formations =  $resultat -> rowCount();
+
+// requête pour compter les competences
+$resultat = $pdoCV -> prepare("SELECT * FROM t_competences WHERE utilisateur_id = '$id_utilisateur'");
+$resultat -> execute();
+$nbr_competences =  $resultat -> rowCount();
+
+// requête pour compter les loisirs
+$resultat = $pdoCV -> prepare("SELECT * FROM t_loisirs WHERE utilisateur_id = '$id_utilisateur'");
+$resultat -> execute();
+$nbr_loisirs =  $resultat -> rowCount();
+
+
+
+include('inc/header.inc.php');
+include('inc/nav.inc.php');
 ?>
-    <nav class="navbar navbar-default couleur"></nav>
-<!-- Contenu HTML -->
-    <h1>Connexion</h1>
-    <div class="container">
-        <div class="row">
-        <?= $msg_erreur ?>
-        <form method="post" action="index.php">
-            <div class="col-xs-12 col-sm-6 col-md-offset-3 col-md-6 col-sm-offset-1">
+<div class="container">
+    <div class="row">
+        <h1 class="col-md-offset-4">Profil</h1>
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <p>Profil de l'utilisateur</p>
+                </div>
+                <div class="container">
+                    <div class="panel-body">
+                        <!-- <div class="table-responsive"> -->
+                        <!-- <table class="table table-bordered table-striped"> -->
+                            <!-- <tr class=""> -->
+                            <ul class="list-unstyled">
+                                <li>Prénom : <?php echo $ligne_utilisateur['prenom'] ;?></li>
+                                <li>Nom : <?php echo $ligne_utilisateur['nom'] ;?></li>
+                                <li>Email : <?php echo $ligne_utilisateur['email'] ;?></li>
+                                <li>Téléphone : <?php echo $ligne_utilisateur['telephone'] ;?></li>
+                                <li>Pseudo : <?php echo $ligne_utilisateur['pseudo'] ;?></li>
+                                <li>Age : <?php echo $ligne_utilisateur['age'] ;?></li>
+                                <li>Date de naissance : <?php echo $ligne_utilisateur['date_naissance'] ;?></li>
+                                <li>Civilité : <?php echo $ligne_utilisateur['sexe'] ;?></li>
+                                <li>Adresse : <?php echo $ligne_utilisateur['adresse'] ;?></li>
+                                <li>Code postal : <?php echo $ligne_utilisateur['code_postal'] ;?></li>
+                                <li>Ville : <?php echo $ligne_utilisateur['ville'] ;?></li>
+                                <li>Pays : <?php echo $ligne_utilisateur['pays'] ;?></li>
+                                <li><a href="modif_utilisateurs.php?id_utilisateur=<?= $ligne_utilisateur['id_utilisateur']; ?>"><button type="button" class="btn btn-success">Modifier</button></a></li>
+                            </ul>
+                       </div>
+                   </div>
+                </div>
+            </div>
+            <div class="col-md-offset-2 col-md-4">
                 <div class="panel panel-default">
-
-                    <div class="panel-body" id="connexion">
-                        <div class="form-group">
-                            <input type="text" class="form-control" name="pseudo" placeholder="Pseudo">
-                        </div>
-                        <div class="form-group">
-                            <input type="password" class="form-control" name="mdp" placeholder="Mot de passe">
-                        </div>
-                        <!-- <button type="submit" name="connexion">Connexion</button> -->
-                            <input type="submit" class="btn btn-primary btn-block couleur" value="Connexion" name=connexion>
+                    <div class="panel-heading">
+                        <a href="realisations.php"> Il y a <?php if ($nbr_realisations <= 1){
+                            echo $nbr_realisations.' realisation';
+                            }else{
+                            echo $nbr_realisations.' realisations';
+                        }?></a href="">
                     </div>
                 </div>
             </div>
-        </form>
+            <div class="col-md-offset-2 col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <a href="formations.php"> Il y a <?php if ($nbr_formations <= 1){
+                            echo $nbr_formations.' formation';
+                            }else{
+                            echo $nbr_formations.' formations';
+                        }?></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-offset-2 col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <a href="competences.php"> Il y a <?php if ($nbr_competences <= 1){
+                            echo $nbr_competences.' competence';
+                        }else{
+                            echo $nbr_competences.' competences';
+                        }?></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-offset-2 col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <a href="loisirs.php"> Il y a <?php if ($nbr_loisirs <= 1){
+                            echo $nbr_loisirs.' loisir';
+                            }else{
+                            echo $nbr_loisirs.' loisirs';
+                        }?></a>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div><!-- /.container -->
-
-<?php
-require_once('inc/footer.inc.php');
-?>
+    </div>
+</div>
+<?php include('inc/footer.inc.php'); ?>

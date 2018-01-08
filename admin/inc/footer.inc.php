@@ -2,7 +2,8 @@
         </section>
         <footer class="footer">
                 <div class="container">
-                    <p class="text-muted">Barbara - <?= date('Y')?></p>
+                    <span class="text-muted">Barbara - <?= date('Y')?></span>
+                    <span><a href="../index.php">Site CV</a></span>
                 </div>
 
 

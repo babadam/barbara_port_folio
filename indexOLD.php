@@ -20,121 +20,130 @@ if(!empty($_POST)){
     if ($valid) {
     	// on crée un nouvel objet (ou une instance) de la class Contact.class.php
         $contact = new Contact($pdoCV);
-
         // on utilise la méthode insertContact pour insérer en BDD
         $contact->insertContact($nom, $email, $telephone, $sujet, $message);
     }
 }
-
 ?>
-
 <!DOCTYPE html>
 <html lang="fr">
     <head>
-        <title>Site Cv <?= $ligne_utilisateur['prenom'] . ' ' . $ligne_utilisateur['nom']?></title>
-        <link rel="stylesheet" href="css/style.css">
-        <meta name="description" content="Site Cv Barbara Tousverts : développeuse - intégratrice web junior">
         <meta charset="utf-8">
+        <title>Site CV Barbara Tousverts : développeuse - intégratrice web</title>
+        <meta name="description" content="Site CV Barbara Tousverts : développeuse - intégratrice web junior">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+        <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
-        <link href="https://fonts.googleapis.com/css?family=Quattrocento+Sans|Rubik+Mono+One|Playfair+Display|Merriweather+Sans" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Rubik+Mono+One" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
     </head>
     <body>
         <nav id="main-nav">
-            <a id="toggle-nav" href="#"><i class="fa fa-bars" aria-hidden="true"></i></a>
-            <ul id="toggle-ul">
+			<a id="toggle-nav" href="#"><i class="fa fa-bars" aria-hidden="true"></i></a>
+            <div id="toggle-ul">
                 <a href="#slide2" class="toggle-a js-scrollTo"><li>Compétences</li></a>
-                <a href="#slide3" class="toggle-a js-scrollTo"><li>Réalisations</li></a>
-                <a href="#slide4" class="toggle-a js-scrollTo"><li>Experiences & Formations</li></a>
+                <a href="#slide3" class="toggle-a js-scrollTo"><li>Experiences & Formations</li></a>
+                <a href="#slide4" class="toggle-a js-scrollTo"><li>Réalisations</li></a>
                 <a href="#slide5" class="toggle-a js-scrollTo"><li>Contact</li></a>
-            </ul>
+            </div>
         </nav>
         <main>
+
+            <!-- Page d'acceuil -->
             <div id="slide1">
-                <div class="slide_inside">
+                <div class="slide_inside" id="slide-accueil">
                     <div class="info">
-                        <h1>Barbara Tous<span>verts</span> </h1>
-                        <p>
-                            Agée de 26 ans, je suis actuellement en formation de développement et d'intégration web depuis sept mois. <br>
-                        </p>
-                         <div class="phone">
-                                <i class="fa fa-phone" aria-hidden="true"></i>
-                                <p>06 63 57 70 89</p>
-                            </div>
-                            <div class="email">
-                                <i class="fa fa-envelope-o" aria-hidden="true"></i>
-                                <p>barbara.tousverts@live.fr</p>
+                        <h1>Barbara Tous<span>verts</span></h1>
+                        <h2>Développeuse - intégratrice web : je recherche un stage</h2>
+                        <div class="info-description">
+                            <p class="p-info"> Agée de 26 ans, je suis actuellement en formation de développement et d'intégration web depuis sept mois.</p>
                         </div>
-                        <p><a href="#slide5" class="js-scrollTo">Contactez - moi</a></p>
+                        <div class="info-contact">
+                            <div class="contact">
+                                <i class="fa fa-phone" aria-hidden="true"></i>
+                                <span>06 63 57 70 89</span><br>
+                                <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                                <span><a href="mailto:barbara.tousverts@gmail.com">barbara.tousverts@live.fr</a></span>
+                            </div>
+                            <div class="r-sociaux">
+                                <a href="https://github.com/babadam"><i class="fa fa-github" aria-hidden="true"></i></a>
+                                <a href="https://twitter.com/TousvertsB"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                <a href="https://www.linkedin.com/in/barbara-tousverts-05a9a8146/"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+                        <div class="acces-form">
+                            <a href="#slide5" class="js-scrollTo">contactez-moi</a>
+                        </div>
                     </div>
-                    <!-- <p class="typed"><span id="holder"></span><span class="blinking-cursor">|</span></p> -->
                 </div>
             </div>
+
+            <!-- Page compétences -->
             <div id="slide2">
                 <div class="slide_inside" id="slide_competence">
-                    <h2>Compétences</h2>
-
+                    <h3>Compétences</h3>
                     <div class="container-skillbar">
-                           <?php
+                        <?php
                            for($i=0; $i<count($ligne_competence); $i++){?>
                                <div class="skillbar clearfix " data-percent="<?= $ligne_competence[$i]['c_niveau']; ?>%">
     		                       <div class="skillbar-title skillbar-title-<?= $ligne_competence[$i]['competence']; ?>"><span><?= $ligne_competence[$i]['competence']; ?></span></div>
     		                       <div class="skillbar-bar skillbar-bar-<?= $ligne_competence[$i]['competence']; ?>"></div>
     		                       <div class="skillbar-percent"><?= $ligne_competence[$i]['c_niveau']; ?>%</div>
     	                       </div>
-                            <?php } ?>
-                       </div><!-- Ende container Skill Bar -->
+                        <?php } ?>
+                     </div><!-- Ende container Skill Bar -->
                 </div>
             </div>
+
+            <!-- Page formations -->
             <div id="slide3">
                 <div class="slide_inside" id="slide_formation">
-                    <h2>Experiences & formations</h2>
+                    <h3>Expériences & formations</h3>
                     <div class="container-formation">
                         <?php
-                         for($i=0; $i<count($ligne_formation); $i++){?>
-                            <div class="formation">
-                                <div class="date_formation">
-                                    <p><?= $ligne_formation[$i]['f_dates'] ?></p>
+                            for($i=0; $i<count($ligne_formation); $i++){?>
+                                <div class="formation">
+                                    <div class="date_formation">
+                                        <p><?= $ligne_formation[$i]['f_dates'] ?></p>
+                                    </div>
+                                    <div class="description_form">
+                                        <span><?= $ligne_formation[$i]['f_titre'] ?></span>
+                                        <p><?= $ligne_formation[$i]['f_soustitre'] ?></p>
+                                        <p><?= $ligne_formation[$i]['f_description'] ?></p>
+						            </div>
                                 </div>
-                                <div class="description_form">
-                                    <span><?= $ligne_formation[$i]['f_titre'] ?></span>
-                                    <p><?= $ligne_formation[$i]['f_soustitre'] ?></p>
-                                    <p><?= $ligne_formation[$i]['f_description'] ?></p>
-                                </div>
-                            </div>
                         <?php } ?>
                     </div>
                 </div>
             </div>
+
+            <!-- Page réalisations -->
             <div id="slide4">
                 <div class="slide_inside" id="slide_realisation">
-                    <h2>Réalisations</h2>
-                    <section id="image">
-                        <article class="imgFlex">
-                            <figure>
-                                <img src="img/real1.png" alt="licorne1">
-                                <figcaption>Lulu Confetty</figcaption>
-                            </figure>
-                            <figure>
-                                <img src="img/real2.png" alt="lircorne2">
-                                <figcaption>Lapillon Magik</figcaption>
-                            </figure>
-                            <figure>
-                                <img src="img/unicorns/photo3.jpg" alt="licorne3">
-                                <figcaption>El Ninjacorn</figcaption>
-                            </figure>
-                            <figure>
-                                <img src="img/unicorns/photo4.jpg" alt="licorne4">
-                                <figcaption>Sweety Candy</figcaption>
-                            </figure>
-                        </article>
-                    </section>
+                    <h3>Réalisations</h3>
+                    <div class="imgFlex">
+                        <figure>
+                            <img src="img/real1.png" alt="licorne1">
+                            <figcaption>HTML - CSS - Jquery - PHP - PHP orienté objet - MySql</figcaption>
+                        </figure>
+                        <figure>
+                            <img src="img/real2.png" alt="lircorne2">
+                            <figcaption>Exercice d'intégration HTML - CSS</figcaption>
+                        </figure>
+                        <figure class="figDroite">
+                            <img src="img/real3.png" alt="licorne3">
+                            <figcaption>Premier site en HTML - CSS</figcaption>
+                        </figure>
+                    </div>
                 </div>
             </div>
+
+            <!-- Page contact -->
             <div id="slide5">
                 <div class="slide_inside" id="slide_contact">
-                    <h2 id="h2_slide5">Me contacter</h2>
+                    <h3 id="h3_slide5">Me contacter</h3>
 					<div class="container-form" id="container-form">
                         <div class="text-form">
                             <p>Pour plus d'informations, n'hésitez pas à me contactez et je vous répondrai dans les meilleurs délais.</p>
@@ -157,16 +166,17 @@ if(!empty($_POST)){
                                  <span class="error"><?php if (isset($erreurmessage)) echo $erreurmessage; ?></span>
                                  <textarea name="message" rows="8" cols="40" id=message placeholder="Message"></textarea>
                              </div>
-                            <input type="submit" name="" value="Envoyer" id="btn-form">
+                            <input type="submit" name="envoyer" value="Envoyer" id="btn-form">
 						</form>
 					</div>
                 </div>
             </div>
         </main>
-            <footer>
-                <p><i class="fa fa-copyright" aria-hidden="true"></i><?= ' '. $ligne_utilisateur['prenom'] . ' ' . $ligne_utilisateur['nom'] . ' ' . date('Y') ?></p>
-                <p> <a href="admin/index.php">Backoffice</a></p>
-            </footer>
-        <script type="text/javascript" src="js/main.js"></script>
+        <footer>
+            <p id="footer-copyright"><i class="fa fa-copyright" aria-hidden="true"></i><?= ' '. $ligne_utilisateur['prenom'] . ' ' . $ligne_utilisateur['nom'] . ' ' . date('Y') ?></p>
+            <p id="link-backoffice"><a href="admin/index.php">Backoffice</a></p>
+        </footer>
+        <script src="js/main.js"></script>
+        <script src="js/jquery-3.2.1.min.js"></script>
     </body>
 </html>

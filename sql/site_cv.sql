@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le :  mer. 20 déc. 2017 à 16:18
+-- Généré le :  lun. 08 jan. 2018 à 10:32
 -- Version du serveur :  10.1.22-MariaDB
 -- Version de PHP :  7.1.4
 
@@ -77,22 +77,8 @@ INSERT INTO `t_competences` (`id_competence`, `competence`, `c_niveau`, `categor
 (3, 'JQUERY', 25, 'dev_front', 1),
 (4, 'PHP', 30, 'dev_front', 1),
 (5, 'MySQL', 50, 'dev_front', 1),
-(6, 'BOOTSTRAP', 35, 'dev_front', 1);
-
--- --------------------------------------------------------
-
---
--- Structure de la table `t_experiences`
---
-
-CREATE TABLE `t_experiences` (
-  `id_experience` int(11) NOT NULL,
-  `e_titre` varchar(50) NOT NULL,
-  `e_soustitre` varchar(50) NOT NULL,
-  `e_dates` varchar(50) NOT NULL,
-  `e_description` text NOT NULL,
-  `utilisateur_id` int(3) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+(6, 'BOOTSTRAP', 35, 'dev_front', 1),
+(7, 'RESPONSIVE', 50, 'dev_front', 1);
 
 -- --------------------------------------------------------
 
@@ -135,7 +121,7 @@ CREATE TABLE `t_loisirs` (
 --
 
 INSERT INTO `t_loisirs` (`id_loisir`, `loisir`, `utilisateur_id`) VALUES
-(1, 'bfgbfc', 1);
+(1, 'fdfs', 1);
 
 -- --------------------------------------------------------
 
@@ -149,22 +135,16 @@ CREATE TABLE `t_realisations` (
   `r_soustitre` varchar(50) NOT NULL,
   `r_dates` varchar(50) NOT NULL,
   `r_description` text NOT NULL,
+  `r_photo` varchar(250) NOT NULL,
   `utilisateur_id` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
 --
--- Structure de la table `t_titre_cv`
+-- Déchargement des données de la table `t_realisations`
 --
 
-CREATE TABLE `t_titre_cv` (
-  `id_titre` int(3) NOT NULL,
-  `titre_cv` text NOT NULL,
-  `accroche` text NOT NULL,
-  `logo` varchar(20) NOT NULL,
-  `utilisateur_id` int(3) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+INSERT INTO `t_realisations` (`id_realisation`, `r_titre`, `r_soustitre`, `r_dates`, `r_description`, `r_photo`, `utilisateur_id`) VALUES
+(1, 'vfxv', 'cvcvc', 'vcxvcx', '<p>vcxvcxvx</p>\r\n', '', 1);
 
 -- --------------------------------------------------------
 
@@ -216,12 +196,6 @@ ALTER TABLE `t_competences`
   ADD PRIMARY KEY (`id_competence`);
 
 --
--- Index pour la table `t_experiences`
---
-ALTER TABLE `t_experiences`
-  ADD PRIMARY KEY (`id_experience`);
-
---
 -- Index pour la table `t_formations`
 --
 ALTER TABLE `t_formations`
@@ -238,12 +212,6 @@ ALTER TABLE `t_loisirs`
 --
 ALTER TABLE `t_realisations`
   ADD PRIMARY KEY (`id_realisation`);
-
---
--- Index pour la table `t_titre_cv`
---
-ALTER TABLE `t_titre_cv`
-  ADD PRIMARY KEY (`id_titre`);
 
 --
 -- Index pour la table `t_utilisateurs`
@@ -264,12 +232,7 @@ ALTER TABLE `t_commentaires`
 -- AUTO_INCREMENT pour la table `t_competences`
 --
 ALTER TABLE `t_competences`
-  MODIFY `id_competence` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
---
--- AUTO_INCREMENT pour la table `t_experiences`
---
-ALTER TABLE `t_experiences`
-  MODIFY `id_experience` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_competence` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT pour la table `t_formations`
 --
@@ -284,12 +247,7 @@ ALTER TABLE `t_loisirs`
 -- AUTO_INCREMENT pour la table `t_realisations`
 --
 ALTER TABLE `t_realisations`
-  MODIFY `id_realisation` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT pour la table `t_titre_cv`
---
-ALTER TABLE `t_titre_cv`
-  MODIFY `id_titre` int(3) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_realisation` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT pour la table `t_utilisateurs`
 --

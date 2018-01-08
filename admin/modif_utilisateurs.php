@@ -4,7 +4,7 @@ require('inc/header.inc.php');
 require('inc/nav.inc.php');
 // require('inc/fonctions.inc.php');
 if(!$_SESSION['connexion'] == 'connecté') {
-    header('location:sauthentifier.php');
+    header('location:connexion.php');
 }
 if(isset($_POST['modifie'])) {
     $id_utilisateur = addslashes($_POST['id_utilisateur']);
@@ -41,7 +41,7 @@ if(isset($_POST['modifie'])) {
         site_web = '$site_web'
         WHERE id_utilisateur = '$id_utilisateur'");
     if($resultat) {
-        header('location:profil.php');
+        header('location:index.php');
     }
 
 }

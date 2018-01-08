@@ -8,7 +8,7 @@ if(isset($_SESSION['connexion']) && $_SESSION['connexion']=='connecté'){ // si 
 
     echo $_SESSION['connexion'];
 }else{ // l'utilisateur n'est pas connecté
-    header('location: index.php');
+    header('location: connexion.php');
 }
 
 

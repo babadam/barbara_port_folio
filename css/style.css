@@ -5,28 +5,29 @@
     border: 0 none;
     box-sizing: border-box;
 }
-
 body{
     font-family: 'Yanone Kaffeesatz', sans-serif;
 }
 /********** TITRE TAILLE MAX ********/
+h1{
+    text-align: center;
+    font-size: 3em;
+    font-family: 'Rubik Mono One', sans-serif;
+}
+h1 span{
+    color: #879650;
+}
 h2{
     font-size: 1.8em;
     padding-top: 2vh;
-    font-family: 'Yanone Kaffeesatz', sans-serif;
     text-align: center;
 }
 h3{
-    /* text-align: center;
-    border-bottom: 1px solid black;
-    font-size: 1.5em;
-    font-family: 'Rubik Mono One', sans-serif; */
     text-align: center;
     padding-top: 9vh;
     font-size: 2.5em;
-    font-family: 'Rubik Mono One', sans-serif;
+    font-family: 'Titillium Web', sans-serif;
 }
-
 /********** FIN TITRE TAILLE MAX ********/
 
 /********** DEBUT NAV TAILLE MAX *******/
@@ -36,84 +37,97 @@ h3{
     position: fixed;
     top: 0;
     box-shadow: 0px 2px 11px 1px rgba(0,0,0,0.75);
-    z-index: 2;
+    z-index: 1;
     font-family: 'Oswald', sans-serif;
     text-transform: uppercase;
     list-style-type: none;
+}
+#main-nav li{
+    padding: 1em;
+    float: right;
+    color: black;
+    text-align: center;
 }
 /********** FIN NAV TAILLE MAX *******/
 
 /********** DEBUT MAIN TAILLE MAX **********/
 main{
     margin: 0 auto;
-    width:100%;
+    width: 100%;
 }
 #slide1, #slide2, #slide3, #slide4, #slide5{
-    /*float: left;*/
     width: 100%;
     min-height: 100vh;
 }
 #slide1{
-    background: url(../img/slide12-bg.jpg) center 0 no-repeat fixed;
-    position: relative;
-    z-index: 0;
+    background: url(../img/slide1-bg.jpg) center 0 no-repeat fixed;
+    /* position: relative;*/
+    /* z-index: 0; */
 }
 #slide2{
     background: #FDEFED;
 }
 #slide3{
-    background:url(../img/slide19-bg.jpg) center 0 no-repeat fixed;
+    background:url(../img/slide2-bg.jpg) center 0 no-repeat fixed;
 }
 #slide4{
     background: #DFC8C5;
 }
 #slide5{
-    background:url(../img/slide13-bg.jpg) center 0 no-repeat fixed;
+    background:url(../img/slide3-bg.jpg) center 0 no-repeat fixed;
 }
-
 .slide_inside {
 	width: 80%;
     height: 100vh;
 	margin: 0 auto;
-    position: relative;
+    position: relative
 }
-
-
 /********** FIN MAIN TAILLE MAX **********/
 
 /********** DEBUT PAGE ACCUEIL TAILLE MAX ********/
 .info{
     background: rgba(255, 255, 255, 0.6);
-    width: 50%;
+    width: 60%;
     position: absolute;
-    margin: 8% 23%;
+    margin: 18% 23%;
     padding: 2%;
-    border-radius: 10px;
 }
 .info p{
     font-size: 1.5em;
     text-align: center
 }
-.info-gauche, .info-droite{
+.info-description, .info-contact{
     padding-top: 2vh;
 }
-.info-gauche{
-    border: 2px solid red;
+.info-description{
     text-align: center;
     padding-top: 2vh;
 }
-.info-droite{
-    border: 2px solid blue;
+.info-contact{
     text-align: center;
 }
-
-h1{
-    text-align: center;
+.r-sociaux, .contact{
+    width: 50%;
+    float: left;
+    margin-top: 1vh;
+}
+.contact{
+    font-size: 1.5em;
+}
+.r-sociaux{
     font-size: 3em;
-    font-family: 'Rubik Mono One', sans-serif;
 }
-h1 span{
+.contact a, .r-sociaux a{
+    color: black;
+}
+.acces-form{
+    margin-top: 10vh;
+    clear: both;
+    text-align: center;
+}
+.acces-form a{
     color: #879650;
+    font-size: 2em;
 }
 /********** FIN PAGE ACCUEIL TAILLE MAX ********/
 
@@ -205,13 +219,16 @@ h1 span{
         background-color: #06A2CB;
     }
     .skillbar-title-PHP, .skillbar-bar-PHP{
-        background-color: mistyrose;
+        background-color: pink;
     }
     .skillbar-title-MySQL, .skillbar-bar-MySQL{
         background-color: green;
     }
     .skillbar-title-BOOTSTRAP, .skillbar-bar-BOOTSTRAP{
         background-color: purple;
+    }
+    .skillbar-title-RESPONSIVE, .skillbar-bar-RESPONSIVE{
+        background-color: #6adcfa;
     }
 /********** FIN PAGE COMPETENCE **********/
 
@@ -241,16 +258,13 @@ h1 span{
     text-shadow: 1px 1px 2px black;
     font-size: 1.5em;
 }
-/* #date_formation_enfant p, #date_formation_bac p{
-    padding: 15%;
-} */
 .description_form{
     width: 60%;
     float: right;
     padding-top: 3.5%;
     padding-left: 7%;
+    font-size: 1.5em;
 }
-
 /********* FIN PAGE FORMATION TAILLE MAX *******/
 
 /********* DEBUT PAGE REALISATION **********/
@@ -290,6 +304,7 @@ figcaption{
 	text-align: center;
 	padding: 5px;
 	bottom: 0;
+    font-size: 1.5em;
 }
 /********* FIN PAGE REALISATION *********/
 
@@ -299,7 +314,6 @@ figcaption{
     margin: auto;
     margin-top: 8vh;
     background-color: rgba(138, 165, 159, 0.6);
-    /*height: 58vh;*/
 }
 .container-form .text-form{
     width: 60%;
@@ -308,6 +322,7 @@ figcaption{
 }
 .container-form .text-form p{
     text-align: center;
+    font-size: 1.5em;
 }
 .container-form input, .container-form textarea{
     color: black;
@@ -325,7 +340,7 @@ figcaption{
 }
 .container-form #btn-form:hover{
     background-color: #B0B168;
-    /* transition: 1s; */
+    transition: 1s;
 }
 .group-input-1, .group-input-2{
     width: 50%;
@@ -334,11 +349,8 @@ figcaption{
 }
 .group-input-1{
     width: 48%;
-    /* margin-left: 1vw; */
-}
-/* .group-input-2{
     margin-left: 1vw;
-} */
+}
 .group-input-1 input{
     margin-bottom: 3.3vh;
 }
@@ -356,6 +368,7 @@ footer p{
     width: 50%;
     float: left;
     background: #8AA59F;
+    font-size: 1.5em;
 }
 footer a{
     text-decoration: none;
@@ -364,7 +377,12 @@ footer a{
 /********** FIN FOOTER ********/
 
 
-/*************** RESPONSIVE ***************/
+/****************************         RESPONSIVE         *********************************/
+@media screen and (max-width:1400px){
+    #slide_formation{
+        width: 80%;
+    }
+}
 @media screen and (max-width:1085px){
     .container-form{
         width: 90%;
@@ -374,23 +392,25 @@ footer a{
     }
 }
  @media screen and (max-width:992px){
-    main{
-        width: 100%;
-    }
     .info{
-        width: 50%;
+        width: 80%;
+        margin: 14%;
     }
     h1{
         font-size: 2em;
     }
+    h3{
+        font-size: 2em;
+        padding-top: 5vh;
+    }
     /*Page réalisation*/
     .imgFlex{
         width: 100%;
-        margin-left: 25vw;
+        margin-left: 20vw;
     }
     figure{
         clear: both;
-        width: 50%;
+        width: 60%;
         height: 25vh;
         margin-top: 2%;
     }
@@ -402,31 +422,22 @@ footer a{
     }
     figcaption{
         width: 100%;
-    }
+    }/* fin réalisation*/
 
+    /*Page formation*/
+    .description_form{
+        padding-top: 1.5%;
+        padding-left: 3%;
+    }
 
 }
  @media screen and (min-width:780px){
-    main{
-        width: 100%;
-        margin-top: 2.5em;
-    }
-    #toggle-nav{
-        display: none;
-    }
-
-    #main-nav li{
-        float: right;
-        color: black;
-        padding: 1%;
-        text-align: center;
-    }
+     #toggle-nav{
+         display: none;
+     }
 }
 /*entre 780px et 1050px, le main fera 750px*/
  @media screen and (max-width:780px){
-    main{
-        width: 100%;
-    }
     /* Menu burger */
      #main-nav {
         width: 200px;
@@ -438,15 +449,13 @@ footer a{
         background-color: inherit;
         box-shadow: inherit;
     }
-
-    #main-nav ul {
+    #toggle-ul {
         float: right;
         background-color: white;
         width: 150px;
         list-style-type: none;
         box-shadow: 0px 2px 11px 1px rgba(0,0,0,0.75);
     }
-
     #main-nav.opened {
         right: 0;
     }
@@ -455,78 +464,15 @@ footer a{
         transform: none;
         color: black;
         text-align: center;
-        /*margin-left: -50px;*/
-    }
-    #main-nav li{
-        border: 1px solid;
-        padding: 10%;
-        font-size: 1.2em;
     }
     #main-nav li:hover{
         background-color: lightgray;
+        width: 100%;
     }
     #main-nav i{
         font-size: 2em;
     }
     /* Fin menu burger */
-    /* Classe gerant presentation page accueil */
-    .info{
-        width: 90%;
-        margin: 27% 6%;
-    }
-    /* Container page competence */
-    #slide_competence{
-        width: 100%;
-    }
-
-}
-@media screen and (max-width:650px){
-    .container-form textarea{
-        padding: 2% 3%;
-    }
-}
- /*entre 580px et 780px, le main fera 550px*/
- @media screen and (max-width:580px){
-    main{
-        width: 100%;
-        border: none;
-    }
-
-    #slide1, #slide2, #slide3, #slide4{
-        width: 100%;
-        height: 125px;
-    }
-    section{
-        margin: 0;
-    }
-    .skillbar-bar-HTML5, .skillbar-bar-CSS3, .skillbar-bar-JQUERY, .skillbar-bar-PHP, .skillbar-bar-MySQL, .skillbar-bar-BOOTSTRAP{
-        background-color: #efefef;
-    }
-    /*Formulaire contact */
-    #slide_contact{
-        width: 100%;
-    }
-    .container-form{
-        width: 100%;
-        padding-top: 0;
-        margin-top: 0;
-        background-color: transparent;
-    }
-    #h3_slide5{
-        padding-top: 4vh;
-    }
-    .container-form .text-form{
-        width: 92%;
-    }
-    .group-input-1, .group-input-2{
-        float: initial;
-        width: 100%;
-        margin-top: 1%;
-    }
-    .group-input-1 input{
-        margin-bottom: 1vh;
-    }
-
     /*Page expérience et formation*/
     .date_formation{
         width: 100%;
@@ -540,12 +486,71 @@ footer a{
         text-align: center;
         float: initial;
         width: 100%;
+        font-size: 1.3em;
     }
-    #date_formation_enfant p, #date_formation_bac p{
-        padding: 1%;
+    /* Classe gerant presentation page accueil */
+    .info{
+        width: 90%;
+        margin: 27% 6%;
+    }
+    /* Container page competence */
+    #slide_competence{
+        width: 100%;
+    }
+}
+@media screen and (max-width:652px){
+    #slide-accueil{
+        width: 100%;
+    }
+    .info{
+        width: 90%;
+    }
+    .contact, .r-sociaux{
+        clear: both;
+        margin: auto;
+        width: 96%;
+        text-align: center;
+    }
+    /*Formulaire*/
+    .container-form textarea{
+        padding: 2% 3%;
+    }
+}
+ /*entre 580px et 780px, le main fera 550px*/
+ @media screen and (max-width:580px){
+    #slide1, #slide2, #slide3, #slide4{
+        width: 100%;
+    }
+    /* Barre de compétences*/
+    .skillbar-bar-HTML5, .skillbar-bar-CSS3, .skillbar-bar-JQUERY, .skillbar-bar-PHP, .skillbar-bar-MySQL, .skillbar-bar-BOOTSTRAP, .skillbar-bar-RESPONSIVE{
+        background-color: #fff;
     }
     figure img{
         width: 100%;
+    }
+    /*Formulaire contact */
+    #slide_contact{
+        width: 100%;
+    }
+    #h3_slide5{
+        padding-top: 4vh;
+    }
+    .container-form{
+        width: 100%;
+        padding-top: 0;
+        margin-top: 0;
+        background-color: transparent;
+    }
+    .container-form .text-form{
+        width: 92%;
+    }
+    .group-input-1, .group-input-2{
+        float: initial;
+        width: 100%;
+        margin-top: 1%;
+    }
+    .group-input-1 input{
+        margin-bottom: 1vh;
     }
     /*Footer*/
     #footer-copyright{
@@ -557,9 +562,6 @@ footer a{
 }
 
 @media screen and (max-width:460px){
-    h2{
-        font-size: 1.5em;
-    }
     #slide_competence{
         width: 100%;
     }
@@ -567,6 +569,4 @@ footer a{
     width: 92%;
     padding-top: 8vh;
     }
-
 }
-/*entre 0px et 580px le main fera 100% ainsi que les zones .a .b .c .d*/
