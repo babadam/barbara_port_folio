@@ -126,15 +126,15 @@ if(!empty($_POST)){
                         <h3>Réalisations</h3>
                         <div class="imgFlex">
                             <figure>
-                                <img src="img/real1.png" alt="licorne1">
+                                <img src="img/real1.png" alt="Mon premier site CV">
                                 <figcaption>HTML - CSS - Jquery - PHP - PHP orienté objet - MySql</figcaption>
                             </figure>
                             <figure>
-                                <img src="img/real2.png" alt="lircorne2">
+                                <a href="real/real2/" target="_blank"><img src="img/real2.png" alt="Exercice Intégration HTML - CSS"></a>
                                 <figcaption>Exercice d'intégration HTML - CSS</figcaption>
                             </figure>
                             <figure class="figDroite">
-                                <img src="img/real3.png" alt="licorne3">
+                                <a href="real/real3/" target="_blank"><img src="img/real3.png" alt="Premier site en HTML - CSS"></a>
                                 <figcaption>Premier site en HTML - CSS</figcaption>
                             </figure>
                         </div>

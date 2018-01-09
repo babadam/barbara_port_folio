@@ -20,42 +20,46 @@ if(!empty($_POST)){
     if ($valid) {
     	// on crée un nouvel objet (ou une instance) de la class Contact.class.php
         $contact = new Contact($pdoCV);
+
         // on utilise la méthode insertContact pour insérer en BDD
         $contact->insertContact($nom, $email, $telephone, $sujet, $message);
     }
 }
+
 ?>
+
 <!DOCTYPE html>
 <html lang="fr">
     <head>
-        <meta charset="utf-8">
         <title>Site CV Barbara Tousverts : développeuse - intégratrice web</title>
-        <meta name="description" content="Site CV Barbara Tousverts : développeuse - intégratrice web junior">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="css/style.css">
+        <meta name="description" content="Site Cv Barbara Tousverts : développeuse - intégratrice web junior">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="js/jquery-3.2.1.min.js"></script>
         <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
-        <link href="https://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Rubik+Mono+One" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Quattrocento+Sans|Rubik+Mono+One|Playfair+Display|Merriweather+Sans" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans|Yanone+Kaffeesatz" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet">
+
+
     </head>
     <body>
         <nav id="main-nav">
 			<a id="toggle-nav" href="#"><i class="fa fa-bars" aria-hidden="true"></i></a>
             <div id="toggle-ul">
                 <a href="#slide2" class="toggle-a js-scrollTo"><li>Compétences</li></a>
-                <a href="#slide3" class="toggle-a js-scrollTo"><li>Experiences & Formations</li></a>
                 <a href="#slide4" class="toggle-a js-scrollTo"><li>Réalisations</li></a>
+                <a href="#slide3" class="toggle-a js-scrollTo"><li>Experiences & Formations</li></a>
                 <a href="#slide5" class="toggle-a js-scrollTo"><li>Contact</li></a>
             </div>
         </nav>
         <main>
-
-            <!-- Page d'acceuil -->
             <div id="slide1">
                 <div class="slide_inside" id="slide-accueil">
                     <div class="info">
-                        <h1>Barbara Tous<span>verts</span></h1>
+                        <h1>Barbara Tous<span>verts</span> </h1>
                         <h2>Développeuse - intégratrice web : je recherche un stage</h2>
                         <div class="info-description">
                             <p class="p-info"> Agée de 26 ans, je suis actuellement en formation de développement et d'intégration web depuis sept mois.</p>
@@ -77,70 +81,66 @@ if(!empty($_POST)){
                             <a href="#slide5" class="js-scrollTo">contactez-moi</a>
                         </div>
                     </div>
+                    <!-- <p class="typed"><span id="holder"></span><span class="blinking-cursor">|</span></p> -->
                 </div>
             </div>
-
-            <!-- Page compétences -->
             <div id="slide2">
                 <div class="slide_inside" id="slide_competence">
                     <h3>Compétences</h3>
+
                     <div class="container-skillbar">
-                        <?php
+                           <?php
                            for($i=0; $i<count($ligne_competence); $i++){?>
                                <div class="skillbar clearfix " data-percent="<?= $ligne_competence[$i]['c_niveau']; ?>%">
     		                       <div class="skillbar-title skillbar-title-<?= $ligne_competence[$i]['competence']; ?>"><span><?= $ligne_competence[$i]['competence']; ?></span></div>
     		                       <div class="skillbar-bar skillbar-bar-<?= $ligne_competence[$i]['competence']; ?>"></div>
     		                       <div class="skillbar-percent"><?= $ligne_competence[$i]['c_niveau']; ?>%</div>
     	                       </div>
-                        <?php } ?>
-                     </div><!-- Ende container Skill Bar -->
+                            <?php } ?>
+                       </div><!-- Ende container Skill Bar -->
                 </div>
             </div>
-
-            <!-- Page formations -->
             <div id="slide3">
                 <div class="slide_inside" id="slide_formation">
                     <h3>Expériences & formations</h3>
                     <div class="container-formation">
                         <?php
-                            for($i=0; $i<count($ligne_formation); $i++){?>
-                                <div class="formation">
-                                    <div class="date_formation">
-                                        <p><?= $ligne_formation[$i]['f_dates'] ?></p>
-                                    </div>
-                                    <div class="description_form">
-                                        <span><?= $ligne_formation[$i]['f_titre'] ?></span>
-                                        <p><?= $ligne_formation[$i]['f_soustitre'] ?></p>
-                                        <p><?= $ligne_formation[$i]['f_description'] ?></p>
-						            </div>
+                         for($i=0; $i<count($ligne_formation); $i++){?>
+                            <div class="formation">
+                                <div class="date_formation">
+                                    <p><?= $ligne_formation[$i]['f_dates'] ?></p>
                                 </div>
+                                <div class="description_form">
+                                   <span><?= $ligne_formation[$i]['f_titre'] ?></span>
+                                   <p><?= $ligne_formation[$i]['f_soustitre'] ?></p>
+                                    <p><?= $ligne_formation[$i]['f_description'] ?></p>
+						         </div>
+                            </div>
                         <?php } ?>
                     </div>
                 </div>
             </div>
-
-            <!-- Page réalisations -->
             <div id="slide4">
                 <div class="slide_inside" id="slide_realisation">
-                    <h3>Réalisations</h3>
-                    <div class="imgFlex">
-                        <figure>
-                            <img src="img/real1.png" alt="licorne1">
-                            <figcaption>HTML - CSS - Jquery - PHP - PHP orienté objet - MySql</figcaption>
-                        </figure>
-                        <figure>
-                            <img src="img/real2.png" alt="lircorne2">
-                            <figcaption>Exercice d'intégration HTML - CSS</figcaption>
-                        </figure>
-                        <figure class="figDroite">
-                            <img src="img/real3.png" alt="licorne3">
-                            <figcaption>Premier site en HTML - CSS</figcaption>
-                        </figure>
-                    </div>
+                    <section id="image">
+                        <h3>Réalisations</h3>
+                        <div class="imgFlex">
+                            <figure>
+                                <img src="img/real1.png" alt="licorne1">
+                                <figcaption>HTML - CSS - Jquery - PHP - PHP orienté objet - MySql</figcaption>
+                            </figure>
+                            <figure>
+                                <img src="img/real2.png" alt="lircorne2">
+                                <figcaption>Exercice d'intégration HTML - CSS</figcaption>
+                            </figure>
+                            <figure class="figDroite">
+                                <img src="img/real3.png" alt="licorne3">
+                                <figcaption>Premier site en HTML - CSS</figcaption>
+                            </figure>
+                        </div>
+                    </section>
                 </div>
             </div>
-
-            <!-- Page contact -->
             <div id="slide5">
                 <div class="slide_inside" id="slide_contact">
                     <h3 id="h3_slide5">Me contacter</h3>
@@ -172,11 +172,10 @@ if(!empty($_POST)){
                 </div>
             </div>
         </main>
-        <footer>
-            <p id="footer-copyright"><i class="fa fa-copyright" aria-hidden="true"></i><?= ' '. $ligne_utilisateur['prenom'] . ' ' . $ligne_utilisateur['nom'] . ' ' . date('Y') ?></p>
-            <p id="link-backoffice"><a href="admin/index.php">Backoffice</a></p>
-        </footer>
+            <footer>
+                <p id="footer-copyright"><i class="fa fa-copyright" aria-hidden="true"></i><?= ' '. $ligne_utilisateur['prenom'] . ' ' . $ligne_utilisateur['nom'] . ' ' . date('Y') ?></p>
+                <p id="link-backoffice"><a href="admin/connexion.php">Backoffice</a></p>
+            </footer>
         <script src="js/main.js"></script>
-        <script src="js/jquery-3.2.1.min.js"></script>
     </body>
 </html>
