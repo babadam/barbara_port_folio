@@ -397,7 +397,7 @@ footer a{
         margin: 14%;
     }
     h1{
-        font-size: 2em;
+        font-size: 3.5em;
     }
     h3{
         font-size: 2em;
@@ -569,7 +569,6 @@ footer a{
         width: 25%;
     }
 }
-
 @media screen and (max-width:460px){
     #slide_competence{
         width: 100%;
@@ -577,5 +576,10 @@ footer a{
     .container-skillbar {
     width: 92%;
     padding-top: 8vh;
+    }
+}
+@media screen and (max-height:600px){
+    .container-formation{
+        margin-top: 0vh;
     }
 }

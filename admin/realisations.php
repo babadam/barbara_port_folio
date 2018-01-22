@@ -24,7 +24,7 @@ if(isset($_POST['r_titre'])){ // Si on a posté une nouvelle compétence
         // exit();
     }// ferme if n'est pas vide
 }
-echo '<pre>'; print_r($_FILES); echo '</pre>';
+// echo '<pre>'; print_r($_FILES); echo '</pre>';
 // Supression d'une compétence
 if(isset($_GET['id_realisation'])){
  // on récupère la compétence par son ID dans l'url
@@ -37,11 +37,11 @@ if(isset($_GET['id_realisation'])){
     $sql -> execute();
     $nbr_realisations =  $sql -> rowCount();
 include('inc/header.inc.php');
-// include('inc/nav.inc.php');
+include('inc/nav.inc.php');
 ?>
 <div class="container">
     <div class="row">
-        <h1><?= $ligne_utilisateur['prenom']?></h1>
+        <h1>Réalisations</h1>
         <!-- <h2>Admin Baba</h2> -->
     </div>
     <!-- <?php echo $msg ?> -->
@@ -121,7 +121,7 @@ include('inc/header.inc.php');
                                 CKEDITOR.replace('editor1');
                         </script>
 
-                        <button type="submit" class="btn btn-info btn-block">Submit</button>
+                        <button type="submit" class="btn btn-info btn-block">Insérez</button>
                     </form>
                 </div>
             </div>
@@ -129,4 +129,4 @@ include('inc/header.inc.php');
     </div>
 
 </div>
-            <?php include('inc/footer.inc.php'); ?>
+<?php include('inc/footer.inc.php'); ?>

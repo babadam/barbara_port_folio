@@ -49,7 +49,7 @@ include('inc/nav.inc.php');
 ?>
 <div class="container">
     <div class="row">
-        <h1><?= $ligne_utilisateur['prenom']?></h1>
+        <h1>Formations</h1>
         <!-- <h2>Admin Baba</h2> -->
     </div>
     <!-- <?php echo $msg ?> -->

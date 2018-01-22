@@ -7,8 +7,8 @@ html {
 body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
-  background: url(../img/bg.jpg) repeat;
-  font-family: 'Amaranth', sans-serif;
+  background: url(../img/bg.png) repeat;
+  font-family: 'Yanone Kaffeesatz', sans-serif;
 }
 .footer {
   position: absolute;
@@ -24,8 +24,7 @@ body {
 }
 h1{
   font-family: 'Spectral SC', serif;
-  color: #6D5555;
-  margin-top: 100px;
+  margin-top: 10vh;
 }
 
 /* Custom page CSS
@@ -68,27 +67,25 @@ input[type=submit].btn-block:hover{
 }
 /**************** NAV ****************/
 .couleur{
-    background-color: #B47D7D;
-    border-color: #D9A9A9;
+    background-color: #ACB89E;
+    border-color: #ACB89E;
     }
     .navbar-inverse .navbar-nav>li>a{
         color: #FFF;
-        font-family: 'Spectral SC', serif;
     }
     .navbar-inverse .navbar-nav>li>a:hover{
-        color: #6D5555;
+        color: #555254;
     }
 
     .navbar-inverse .navbar-brand {
-    color: #6D5555;
-    font-family: 'Spectral SC', serif;
+    color: #555254;
     }
     .navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:focus, .navbar-inverse .navbar-nav>.open>a:hover{
-      background-color: #6D5555;
+      background-color: #555254;
     }
     .panel-default>.panel-heading{
-      background-color: mistyrose;
-      border-color: mistyrose;
+      background-color: #E8C8C8;
+      border-color: #E8C8C8;
     }
     .shadowNav{
         box-shadow: 0px 2px 14px 1px rgba(0,0,0,0.75);

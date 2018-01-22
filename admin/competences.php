@@ -11,9 +11,6 @@ if(isset($_SESSION['connexion']) && $_SESSION['connexion']=='connecté'){
     header('location: connexion.php');
 }
 
-
-
-
 if(isset($_POST['competence'])){ // Si on a posté une nouvelle compétence
     //echo 'rentre dans ligne 6 => ok';
     if(!empty($_POST['competence']) && !empty($_POST['c_niveau'])){ // Si compétence n'est pas vide
@@ -51,7 +48,6 @@ include('inc/nav.inc.php');
 <div class="container">
     <div class="row">
         <h1> Compétences</h1>
-        <!-- <h2>Admin Baba</h2> -->
     </div>
     <div class="row">
         <div class="col-md-8">
