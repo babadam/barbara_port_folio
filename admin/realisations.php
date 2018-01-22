@@ -6,7 +6,7 @@ if(isset($_SESSION['connexion']) && $_SESSION['connexion']=='connecté'){ // si 
     $nom = $_SESSION['nom'];
     // echo $_SESSION['connexion'];
 }else{ // l'utilisateur n'est pas connecté
-    header('location: index.php');
+    header('location: connexion.php');
 }
 $sql = $pdoCV -> query("SELECT * FROM t_utilisateurs WHERE id_utilisateur = '$id_utilisateur'");
 $ligne_utilisateur = $sql -> fetch(PDO::FETCH_ASSOC);

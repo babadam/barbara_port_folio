@@ -11,8 +11,7 @@ body{
 /********** TITRE TAILLE MAX ********/
 h1{
     text-align: center;
-    font-size: 3em;
-    font-family: 'Rubik Mono One', sans-serif;
+    font-size: 4em;
 }
 h1 span{
     color: #879650;
@@ -552,6 +551,15 @@ footer a{
     }
     .group-input-1 input{
         margin-bottom: 1vh;
+        margin-left: 2vw;
+    }
+    .container-form input:not(#btn-form), .container-form textarea{
+        color: black;
+        background-color: whitesmoke;
+        padding: 0.5em;
+    }
+    .container-form #btn-form{
+        padding: 0.5em;
     }
     /*Footer*/
     #footer-copyright{

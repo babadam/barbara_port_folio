@@ -51,7 +51,7 @@ if(!empty($_POST)){
             <div id="toggle-ul">
                 <a href="#slide2" class="toggle-a js-scrollTo"><li>Compétences</li></a>
                 <a href="#slide4" class="toggle-a js-scrollTo"><li>Réalisations</li></a>
-                <a href="#slide3" class="toggle-a js-scrollTo"><li>Experiences & Formations</li></a>
+                <a href="#slide3" class="toggle-a js-scrollTo"><li>Expériences & Formations</li></a>
                 <a href="#slide5" class="toggle-a js-scrollTo"><li>Contact</li></a>
             </div>
         </nav>
@@ -67,7 +67,7 @@ if(!empty($_POST)){
                         <div class="info-contact">
                             <div class="contact">
                                 <i class="fa fa-phone" aria-hidden="true"></i>
-                                <span>06 63 57 70 89</span><br>
+                                <a href="tel:+33663577089">06 63 57 70 89</a><br>
                                 <i class="fa fa-envelope-o" aria-hidden="true"></i>
                                 <span><a href="mailto:barbara.tousverts@gmail.com">barbara.tousverts@live.fr</a></span>
                             </div>
