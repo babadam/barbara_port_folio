@@ -14,8 +14,6 @@ if(isset($_SESSION['connexion']) && $_SESSION['connexion']=='connecté'){
 } // fun du if isset
 
 
-
-
 $resultat = $pdoCV -> query("SELECT * FROM t_utilisateurs WHERE id_utilisateur = '$id_utilisateur'");
 $ligne_utilisateur = $resultat -> fetch(PDO::FETCH_ASSOC);
 
@@ -71,6 +69,7 @@ include('inc/nav.inc.php');
                                 <li>Code postal : <?php echo $ligne_utilisateur['code_postal'] ;?></li>
                                 <li>Ville : <?php echo $ligne_utilisateur['ville'] ;?></li>
                                 <li>Pays : <?php echo $ligne_utilisateur['pays'] ;?></li>
+                                <li>Pays : <?php echo $ligne_utilisateur['site_web'] ;?></li>
                                 <li><a href="modif_utilisateurs.php?id_utilisateur=<?= $ligne_utilisateur['id_utilisateur']; ?>"><button type="button" class="btn btn-success">Modifier</button></a></li>
                             </ul>
                        </div>

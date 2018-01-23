@@ -1,5 +1,5 @@
 <body>
-    <nav class="navbar navbar-fixed-top navbar-inverse couleur"> <!--NAV-->
+    <nav class="navbar navbar-inverse couleur"> <!--NAV-->
         <div class="container-fluid shadowNav">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -12,7 +12,6 @@
                 </div>
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
-
                         <li class="dropdown"> <!-- menu déroulant Parcours-->
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Parcours <span class="caret"></span></a>
                             <ul class="dropdown-menu">
@@ -32,9 +31,10 @@
 
                      <!-- bouton déconnexion -->
                      <div class="nav navbar-nav navbar-right">
-                         <!-- <ul class="nav navbar-nav"> -->
-                            <a class="navbar-brand" href="connexion.php?action=deconnexion"><span class="glyphicon glyphicon-off" aria-hidden="true"></a>
-
+                         <ul class="nav navbar-nav">
+                            <li><a href="messages.php">Messages</a></li>
+                            <li><a class="navbar-brand" href="connexion.php?action=deconnexion"><span class="glyphicon glyphicon-off" aria-hidden="true"></a></li>
+                        </ul>
                      </div>
                  </div>
              </div><!-- fin container fluid-->

@@ -17,14 +17,14 @@ body {
   /* Set the fixed height of the footer here */
   height: 40px;
   background-color: #E8C8C8;
-  color: #D9A9A9;
+  color: red;
 }
 *{
     margin: 0;
 }
 h1{
   font-family: 'Spectral SC', serif;
-  margin-top: 10vh;
+  margin-top: 5vh;
 }
 
 /* Custom page CSS
@@ -36,7 +36,6 @@ body > .container {
 }
 .container .text-muted {
   margin: 10px 14px;
-  color: #803939;s
 }
 
 /*.footer > .container {
@@ -62,8 +61,8 @@ code {
 
 /*hover bouton*/
 input[type=submit].btn-block:hover{
-    background-color: #6D5555;
-    border-color: #6D5555;
+    background-color: #ACB89E;
+    border-color: #ACB89E;
 }
 /**************** NAV ****************/
 .couleur{
@@ -78,10 +77,10 @@ input[type=submit].btn-block:hover{
     }
 
     .navbar-inverse .navbar-brand {
-    color: #555254;
+    color: #797C76;
     }
     .navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:focus, .navbar-inverse .navbar-nav>.open>a:hover{
-      background-color: #555254;
+      background-color: #797C76;
     }
     .panel-default>.panel-heading{
       background-color: #E8C8C8;
@@ -92,4 +91,9 @@ input[type=submit].btn-block:hover{
     }
 
 
+
 /************** FIN NAV ****************/
+
+/************* REALISATION ************/
+
+/************* FIN REALISATION ************/

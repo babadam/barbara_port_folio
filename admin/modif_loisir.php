@@ -6,7 +6,7 @@ if(isset($_SESSION['connexion']) && $_SESSION['connexion']=='connecté'){ // si 
     $prenom = $_SESSION['prenom'];
     $nom = $_SESSION['nom'];
 
-    echo $_SESSION['connexion'];
+    // echo $_SESSION['connexion']; => vérification de la connexion
 }else{ // l'utilisateur n'est pas connecté
     header('location: connexion.php');
 }
@@ -14,12 +14,14 @@ if(isset($_SESSION['connexion']) && $_SESSION['connexion']=='connecté'){ // si 
 
 // mise à jour d'une compétence
 if(isset($_POST['loisir'])){ // par le nom d'une premier input
-    $loisir = addslashes($_POST['loisir']);
-    $id_loisir = $_POST['id_loisir'];
+    if(!empty($_POST['loisir'])){
+        $loisir = addslashes($_POST['loisir']);
+        $id_loisir = $_POST['id_loisir'];
 
-    $pdoCV -> exec("UPDATE t_loisirs SET loisir = '$loisir' WHERE id_loisir = '$id_loisir'");
-    header('location: loisirs.php');
-    exit();
+        $pdoCV -> exec("UPDATE t_loisirs SET loisir = '$loisir' WHERE id_loisir = '$id_loisir'");
+        header('location: loisirs.php');
+        exit();
+    }
 }
 
 // je récupère la compétence
@@ -34,32 +36,36 @@ $ligne_utilisateur = $sql -> fetch();
 include('inc/header.inc.php');
 include('inc/nav.inc.php');
 ?>
-<!DOCTYPE html>
-<html lang="fr">
-    <head>
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <meta http-equiv="X-UA-Compatible" content="ie=edge">
-            <title>Admin : <?= $ligne_utilisateur['pseudo']?> </title>
-        </head>
-    </head>
-    <body>
-        <h1>Admin <?= $ligne_utilisateur['prenom']?></h1>
-        <hr>
 
-        <h2>Modification d'un loisir </h2>
-        <p><?= $ligne_loisir['loisir'] ?></p>
+<!-- <?php echo '<pre>'; print_r($ligne_formation); echo '</pre>'; ?> -->
 
-        <form action="#" method="post">
-            <label for="loisir">Loisir :</label><br>
-            <input type="text" name="loisir" id ="loisir" value="<?= $ligne_loisir['loisir'] ?>"><br><br>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h2>Modification d'un loisir</h2>
+                </div>
 
-            <input hidden name="id_loisir" value="<?= $ligne_loisir['id_loisir'] ?>">
+                <div class="panel-body">
+                    <form action="modif_loisir.php" method="post">
 
-            <input type="submit" name="" value="Modifier">
-        </form>
-    </body>
-</html>
+                        <div class="form-group">
+                            <label for="loisir">Loisir :</label><br>
+                            <input type="text" class="form-control" name="loisir" id ="loisir" value="<?= $ligne_loisir['loisir'] ?>"><br><br>
+                        </div>
+
+                        <input hidden name="id_loisir" value="<?= $ligne_loisir['id_loisir'] ?>">
+
+                        <button type="submit" class="btn btn-block">Modifier</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 
 <?php include('inc/footer.inc.php'); ?>

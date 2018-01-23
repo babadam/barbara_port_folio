@@ -11,7 +11,7 @@ if(isset($_SESSION['connexion']) && $_SESSION['connexion']=='connecté'){ // si 
     $prenom = $_SESSION['prenom'];
     $nom = $_SESSION['nom'];
 
-    echo $_SESSION['connexion'];
+    // echo $_SESSION['connexion']; // vérification de la connexion
 }else{ // l'utilisateur n'est pas connecté
     header('location: connexion.php');
 }
@@ -32,8 +32,6 @@ if(isset($_POST['r_titre'])){ // Si on a posté une nouvelle compétence
     }
 }// ferme if n'est pas vide
 
-
-
 // je récupère la compétence
 $id_realisation = $_GET['id_realisation']; // par l'id et get
 $sql = $pdoCV -> query("SELECT * FROM t_realisations WHERE id_realisation = '$id_realisation'"); // la requete eest égale à l'ID
@@ -46,49 +44,53 @@ include('inc/header.inc.php');
 include('inc/nav.inc.php');
 ?>
 <!-- <?php echo '<pre>'; print_r($ligne_realisation); echo '</pre>'; ?> -->
-        <h1>Admin <?= $ligne_utilisateur['prenom']?></h1>
-        <hr>
-        <h2 class="well">Modification d'une realisation</h2>
-        <div class="col-md-4">
-            <div class="panel panel-danger">
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <div class="panel panel-default">
                 <div class="panel-heading">
-                    <div><?= $ligne_realisation['r_titre'] ?></div>
+                    <h2>Modification d'une réalisation</h2>
                 </div>
+
                 <div class="panel-body">
                     <form action="modif_realisation.php" method="post">
+
                         <div class="form-group">
                             <label for="r_titre">Titre</label><br>
-                            <input type="text" name="r_titre" id ="r_titre" value="<?= $ligne_realisation['r_titre'] ?>"><br><br>
+                            <input type="text" class="form-control" name="r_titre" id ="r_titre" value="<?= $ligne_realisation['r_titre'] ?>"><br><br>
                         </div>
 
                         <div class="form-group">
                             <label for="r_soustitre">Sous-titre</label><br>
-                            <input type="text" name="r_soustitre" id ="r_soustitre" value="<?= $ligne_realisation['r_soustitre'] ?>"><br><br>
+                            <input type="text" class="form-control" name="r_soustitre" id ="r_soustitre" value="<?= $ligne_realisation['r_soustitre'] ?>"><br><br>
                         </div>
 
                         <div class="form-group">
                             <label for="r_dates">Dates</label><br>
-                            <input type="text" name="r_dates" id ="r_dates" value="<?= $ligne_realisation['r_dates'] ?>"><br><br>
+                            <input type="text" class="form-control" name="r_dates" id ="r_dates" value="<?= $ligne_realisation['r_dates'] ?>"><br><br>
                         </div>
 
                         <div class="form-group">
                             <label for="r_description">Description</label><br>
-                            <input type="text" name="r_description" id="r_description" value="<?= $ligne_realisation['r_description'] ?>"><br><br>
+                            <textarea class="form-control" id="editor1" name="r_description" class="form-control" placeholder="Décrire laréalisation" value="<?= $ligne_realisation['r_description'] ?>"></textarea><br><br>
+                            <script>CKEDITOR.replace('editor1');</script>
                         </div>
 
                         <div class="form-group">
                             <label for="r_photo">Photo</label>
-                            <input type="file" id="r_photo" name="r_photo" id="r_photo" value="<?= $ligne_realisation['r_photo'] ?>">
+                            <input type="file" id="r_photo" class="form-control" name="r_photo" id="r_photo" value="<?= $ligne_realisation['r_photo'] ?>">
                         </div>
 
                         <input hidden name="id_realisation" value="<?= $ligne_realisation['id_realisation'] ?>">
 
-                        <input type="submit" name="" class="btn btn-danger btn-block" value="Modifier">
+                        <input type="submit" class="btn btn-block" value="Modifier">
                     </form>
                 </div>
             </div>
         </div>
-    </body>
-</html>
+    </div>
+</div>
 
 <?php include('inc/footer.inc.php'); ?>

@@ -12,18 +12,17 @@ if(isset($_SESSION['connexion']) && $_SESSION['connexion']=='connecté'){ // si 
     header('location: connexion.php');
 }
 
-
 $sql = $pdoCV -> query("SELECT * FROM t_utilisateurs WHERE id_utilisateur = '$id_utilisateur'");
 $ligne_utilisateur = $sql -> fetch(PDO::FETCH_ASSOC);
 
 if(isset($_POST['f_titre'])){ // Si on a posté une nouvelle compétence
-    echo 'rentre dans ligne 6 => ok';
-    if(!empty($_POST['f_titre']) && !empty($_POST['f_soustitre']) && !empty($_POST['f_dates'])){ // Si compétence n'est pas vide
+    // echo 'rentre dans ligne 6 => ok';
+    if(!empty($_POST['f_titre']) && !empty($_POST['f_soustitre']) && !empty($_POST['f_dates'])){ // Si formation n'est pas vide
         $titre = addslashes($_POST['f_titre']);
         $sousTitre = addslashes($_POST['f_soustitre']);
         $dates = addslashes($_POST['f_dates']);
         $description = addslashes($_POST['f_description']);
-        $pdoCV -> exec("INSERT INTO t_formations (f_titre, f_soustitre, f_dates, f_description, utilisateur_id) VALUES ('$titre', '$sousTitre', '$dates', '$description', '$id_utilisateur')"); // mettre $id_utilisateur quand on l'aura dans la variable de session
+        $pdoCV -> exec("INSERT INTO t_formations (f_titre, f_soustitre, f_dates, f_description, utilisateur_id) VALUES ('$titre', '$sousTitre', '$dates', '$description', '$id_utilisateur')");
         header("location:formations.php");
         exit();
 
@@ -32,7 +31,7 @@ if(isset($_POST['f_titre'])){ // Si on a posté une nouvelle compétence
 
 // Supression d'une compétence
 if(isset($_GET['id_formation'])){
- // on récupère la compétence par son ID dans l'url
+ // on récupère la formation par son ID dans l'url
     $efface = $_GET['id_formation'];
     $sql = " DELETE FROM t_formations WHERE id_formation = '$efface' ";
     $pdoCV ->query($sql);
@@ -50,7 +49,6 @@ include('inc/nav.inc.php');
 <div class="container">
     <div class="row">
         <h1>Formations</h1>
-        <!-- <h2>Admin Baba</h2> -->
     </div>
     <!-- <?php echo $msg ?> -->
     <div class="row">
@@ -103,19 +101,19 @@ include('inc/nav.inc.php');
                 </div>
                 <div class="panel-body">
                     <form action="formations.php" method="post">
-                        <div class="form-group">
+                        <div class="form-group" id="form-group">
                             <label for="f_titre">Titre</label>
                             <input type="text" class="form-control" id="f_titre" name="f_titre" placeholder="Titre">
                         </div>
-                        <div class="form-group">
+                        <div class="form-group" id="form-group">
                             <label for="f_soustitre">Sous-titre</label>
                             <input type="text" class="form-control" id="f_soustitre" name="f_soustitre" placeholder="Sous-titre">
                         </div>
-                        <div class="form-group">
+                        <div class="form-group" id="form-group">
                             <label for="f_dates">Dates</label>
                             <input type="text" class="form-control" id="f_dates" name="f_dates" placeholder="Insérez les dates">
                         </div>
-                        <div class="form-group">
+                        <div class="form-group" id="form-group">
                             <label for="f_description">Description</label>
                             <textarea class="form-control" id="editor1" name="f_description" placeholder="Décrire la formation"></textarea>
                         </div>
@@ -123,12 +121,12 @@ include('inc/nav.inc.php');
                                 CKEDITOR.replace('editor1');
                         </script>
 
-                        <button type="submit" class="btn btn-info btn-block">Submit</button>
+                        <button type="submit" class="btn btn-block">Insérer</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-
 </div>
-            <?php include('inc/footer.inc.php'); ?>
+
+<?php include('inc/footer.inc.php'); ?>

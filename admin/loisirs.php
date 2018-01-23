@@ -42,8 +42,7 @@ include('inc/nav.inc.php');
 ?>
 <div class="container">
     <div class="row">
-        <h1><?= $ligne_utilisateur['prenom']?></h1>
-        <!-- <h2>Admin Baba</h2> -->
+        <h1>Loisirs</h1>
     </div>
     <div class="row">
         <div class="col-md-8">
@@ -93,7 +92,7 @@ include('inc/nav.inc.php');
                             <input type="text" class="form-control" id="loisir" name="loisir" placeholder="Insérez votre loisir">
                         </div>
 
-                        <button type="submit" class="btn btn-info btn-block">Submit</button>
+                        <button type="submit" class="btn btn-block">Insérer</button>
                     </form>
                 </div>
             </div>

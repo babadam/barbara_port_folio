@@ -1,48 +1,52 @@
 <?php
 include('inc/init.inc.php');
+
 if(isset($_SESSION['connexion']) && $_SESSION['connexion']=='connecté'){ // si pas connecté : redirection vers le formulaire de ocnnexion
     $id_utilisateur = $_SESSION['id_utilisateur'];
     $prenom = $_SESSION['prenom'];
     $nom = $_SESSION['nom'];
+
     // echo $_SESSION['connexion'];
 }else{ // l'utilisateur n'est pas connecté
-    header('location: connexion.php');
+    header('location: index.php');
 }
+
 $sql = $pdoCV -> query("SELECT * FROM t_utilisateurs WHERE id_utilisateur = '$id_utilisateur'");
 $ligne_utilisateur = $sql -> fetch(PDO::FETCH_ASSOC);
 
 if(isset($_POST['r_titre'])){ // Si on a posté une nouvelle compétence
-    echo 'rentre dans ligne 6 => ok';
-    if(!empty($_POST['r_titre']) && !empty($_POST['r_soustitre']) && !empty($_POST['r_dates']) && !empty($_POST['r_description'])){ // Si compétence n'est pas vide
+    // echo 'rentre dans ligne 6 => ok';
+    if(!empty($_POST['r_titre']) && !empty($_POST['r_soustitre']) && !empty($_POST['r_dates']) && !empty($_POST['r_description'])){ // Si réalisation n'est pas vide
         $titre = addslashes($_POST['r_titre']);
         $sousTitre = addslashes($_POST['r_soustitre']);
         $dates = addslashes($_POST['r_dates']);
         $description = addslashes($_POST['r_description']);
         $photo = addslashes($_POST['r_photo']);
         $pdoCV -> exec("INSERT INTO t_realisations (r_titre, r_soustitre, r_dates, r_description, r_photo, utilisateur_id) VALUES ('$titre', '$sousTitre', '$dates', '$description', '$photo', '$id_utilisateur')");
-        // header("location:realisations.php");
-        // exit();
+        header("location:realisations.php");
+        exit();
     }// ferme if n'est pas vide
 }
 // echo '<pre>'; print_r($_FILES); echo '</pre>';
 // Supression d'une compétence
 if(isset($_GET['id_realisation'])){
- // on récupère la compétence par son ID dans l'url
+ // on récupère la réalisation par son ID dans l'url
     $efface = $_GET['id_realisation'];
     $sql = " DELETE FROM t_realisations WHERE id_realisation = '$efface' ";
     $pdoCV ->query($sql);
     header("location: realisations.php");
 } // ferme le if isset supression
+
     $sql = $pdoCV -> prepare("SELECT * FROM t_realisations WHERE utilisateur_id = '$id_utilisateur'");
     $sql -> execute();
     $nbr_realisations =  $sql -> rowCount();
+
 include('inc/header.inc.php');
 include('inc/nav.inc.php');
 ?>
 <div class="container">
     <div class="row">
         <h1>Réalisations</h1>
-        <!-- <h2>Admin Baba</h2> -->
     </div>
     <!-- <?php echo $msg ?> -->
     <div class="row">
@@ -96,7 +100,7 @@ include('inc/nav.inc.php');
                         <p>Insertion d'une réalisation</p>
                 </div>
                 <div class="panel-body">
-                    <form action="realisations.php" method="post" enctype="multipart/form-data">
+                    <form action="realisations.php" method="post" >
                         <div class="form-group">
                             <label for="r_titre">Titre</label>
                             <input type="text" class="form-control" id="r_titre" name="r_titre" placeholder="Titre">
@@ -121,12 +125,12 @@ include('inc/nav.inc.php');
                                 CKEDITOR.replace('editor1');
                         </script>
 
-                        <button type="submit" class="btn btn-info btn-block">Insérez</button>
+                        <button type="submit" class="btn btn-block">Insérer</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-
 </div>
+
 <?php include('inc/footer.inc.php'); ?>
