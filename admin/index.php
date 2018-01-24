@@ -38,6 +38,10 @@ $resultat = $pdoCV -> prepare("SELECT * FROM t_loisirs WHERE utilisateur_id = '$
 $resultat -> execute();
 $nbr_loisirs =  $resultat -> rowCount();
 
+// récupérer les messages du formulaire de contact
+$sql = $pdoCV -> prepare("SELECT * FROM t_commentaires");
+$sql -> execute();
+$nbr_commentaires =  $sql -> rowCount();
 
 
 include('inc/header.inc.php');
@@ -69,7 +73,7 @@ include('inc/nav.inc.php');
                                 <li>Code postal : <?php echo $ligne_utilisateur['code_postal'] ;?></li>
                                 <li>Ville : <?php echo $ligne_utilisateur['ville'] ;?></li>
                                 <li>Pays : <?php echo $ligne_utilisateur['pays'] ;?></li>
-                                <li>Pays : <?php echo $ligne_utilisateur['site_web'] ;?></li>
+                                <li>Site web : <?php echo $ligne_utilisateur['site_web'] ;?></li>
                                 <li><a href="modif_utilisateurs.php?id_utilisateur=<?= $ligne_utilisateur['id_utilisateur']; ?>"><button type="button" class="btn btn-success">Modifier</button></a></li>
                             </ul>
                        </div>
@@ -116,6 +120,17 @@ include('inc/nav.inc.php');
                             echo $nbr_loisirs.' loisir';
                             }else{
                             echo $nbr_loisirs.' loisirs';
+                        }?></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-offset-2 col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <a href="messages.php"> Il y a <?php if ($nbr_commentaires <= 1){
+                            echo $nbr_commentaires.' message';
+                            }else{
+                            echo $nbr_commentaires.' messages';
                         }?></a>
                     </div>
                 </div>

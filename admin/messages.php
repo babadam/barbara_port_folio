@@ -11,10 +11,19 @@ if(isset($_SESSION['connexion']) && $_SESSION['connexion']=='connecté'){
     header('location: connexion.php');
 }
 
+//Supression d'un message
+if(isset($_GET['id_commentaire'])){
+    // on récupère la formation par son ID dans l'url
+    $efface = $_GET['id_commentaire'];
+    $sql = " DELETE FROM t_commentaires WHERE id_commentaire = '$efface' ";
+    $pdoCV ->query($sql);
+    header("location: messages.php");
+}
 // récupérer les messages du formulaire de contact
-$sql = $pdoCV -> prepare("SELECT * FROM t_commentaires WHERE utilisateur_id = '$id_utilisateur'");
+$sql = $pdoCV -> prepare("SELECT * FROM t_commentaires");
 $sql -> execute();
 $nbr_commentaires =  $sql -> rowCount();
+
 
 include('inc/header.inc.php');
 include('inc/nav.inc.php');
@@ -30,7 +39,7 @@ include('inc/nav.inc.php');
         <div class="col-md-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <p> Il y a <?php if ($nbr_commentaires <= 1){
+                    <p> Vous avez reçu <?php if ($nbr_commentaires <= 1){
                         echo $nbr_commentaires.' message';
                     }else{
                         echo $nbr_commentaires.' messages';
@@ -64,3 +73,4 @@ include('inc/nav.inc.php');
         </div>
     </div>
 </div>
+<?php include('inc/footer.inc.php'); ?>
