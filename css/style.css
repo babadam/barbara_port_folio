@@ -361,19 +361,27 @@ form span.error{
 /********** FIN PAGE CONTACT TAILLE MAX **************/
 
 /********** DEBUT FOOTER ********/
+footer{
+    background: #8AA59F;
+}
 footer p{
     text-align: center;
     color: #EBEBEB;
-    line-height: 50px;
     width: 50%;
+    line-height: 50px;
     float: left;
     background: #8AA59F;
     font-size: 1.5em;
 }
-footer a{
-    text-decoration: none;
-    color: #EBEBEB;
+.rs-footer{
+    text-align: center;
 }
+.rs-footer a{
+    font-size: 3em;
+    color: #EBEBEB;
+    padding: 0 15px;
+}
+
 /********** FIN FOOTER ********/
 
 
@@ -497,6 +505,15 @@ footer a{
     #slide_competence{
         width: 100%;
     }
+    /* Footer */
+    .rs-footer a{
+        font-size: 1.3em;
+        padding: 0;
+        color: #EBEBEB;
+        line-height: 9vh;
+        text-align: left;
+    }
+
 }
 @media screen and (max-width:652px){
     #slide-accueil{
@@ -515,6 +532,7 @@ footer a{
     .container-form textarea{
         padding: 2% 3%;
     }
+
 }
  /*entre 580px et 780px, le main fera 550px*/
  @media screen and (max-width:580px){
