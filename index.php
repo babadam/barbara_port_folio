@@ -15,6 +15,7 @@ if(!empty($_POST)){
     $erreurtelephone = (empty($telephone)) ? 'Indiquez votre telephone' : null;
     $erreursujet = (empty($sujet)) ? 'Indiquez votre sujet' : null;
     $erreurmessage = (empty($message)) ? 'Indiquez votre message' : null;
+    $validation = ($valid) ? 'Votre message a bien été envoyé' : null;
 
     // si tous les champs sont correctement renseignés
     if ($valid) {
@@ -166,20 +167,21 @@ if(!empty($_POST)){
                                  <span class="error"><?php if (isset($erreurmessage)) echo $erreurmessage; ?></span>
                                  <textarea name="message" rows="8" cols="40" id=message placeholder="Message"></textarea>
                              </div>
+                             <span class="validation"><?php if (isset($validation)) echo $validation; ?></span>
                             <input type="submit" name="envoyer" value="Envoyer" id="btn-form">
 						</form>
 					</div>
                 </div>
             </div>
         </main>
-            <footer>
-                <p id="footer-copyright"><i class="fa fa-copyright" aria-hidden="true"></i><?= ' '. $ligne_utilisateur['prenom'] . ' ' . $ligne_utilisateur['nom'] . ' ' . date('Y') ?></p>
-                <div class="rs-footer">
-                    <a href="https://github.com/babadam/barbara_port_folio" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
-                    <a href="https://twitter.com/TousvertsB" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                    <a href="https://www.linkedin.com/in/barbara-tousverts-05a9a8146/" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-                </div>
-            </footer>
+        <footer>
+            <p id="footer-copyright"><i class="fa fa-copyright" aria-hidden="true"></i><?= ' '. $ligne_utilisateur['prenom'] . ' ' . $ligne_utilisateur['nom'] . ' ' . date('Y') ?></p>
+            <div class="rs-footer">
+                <a href="https://github.com/babadam/barbara_port_folio" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
+                <a href="https://twitter.com/TousvertsB" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                <a href="https://www.linkedin.com/in/barbara-tousverts-05a9a8146/" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+            </div>
+        </footer>
         <script src="js/main.js"></script>
     </body>
 </html>

@@ -1,5 +1,4 @@
 <?php
-
 include('inc/init.inc.php');
 
 if(isset($_SESSION['connexion']) && $_SESSION['connexion']=='connecté'){ // si pas connecté : redirection vers le formulaire de ocnnexion
@@ -12,22 +11,30 @@ if(isset($_SESSION['connexion']) && $_SESSION['connexion']=='connecté'){ // si 
     header('location: connexion.php');
 }
 
-$sql = $pdoCV -> query("SELECT * FROM t_utilisateurs WHERE id_utilisateur = '$id_utilisateur'");
-$ligne_utilisateur = $sql -> fetch(PDO::FETCH_ASSOC);
+if(!empty($_POST)){ // Si on a posté une nouvelle compétence
+    
+    if(empty($_POST['f_titre'])){
+        $erreur_titre .= '<div class="alert alert-danger" role="alert">Veuillez renseigner le champs titre</div>';
+    }
+    if(empty($_POST['f_soustitre'])){
+        $erreur_soustitre .= '<div class="alert alert-danger" role="alert">Veuillez renseigner le champs sous-titre</div>';
+    }
+    if(empty($_POST['f_dates'])){
+        $erreur_date .= '<div class="alert alert-danger" role="alert">Veuillez renseigner le champs dates</div>';
+    }
+    if((empty($erreur_titre)) && (empty($erreur_soustitre)) && (empty($erreur_date))){
+        $sql = $pdoCV->prepare("INSERT INTO t_formations (f_titre, f_soustitre, f_dates, f_description, utilisateur_id) VALUES (:f_titre, :f_soustitre, :f_dates, :f_description, '1')");
 
-if(isset($_POST['f_titre'])){ // Si on a posté une nouvelle compétence
-    // echo 'rentre dans ligne 6 => ok';
-    if(!empty($_POST['f_titre']) && !empty($_POST['f_soustitre']) && !empty($_POST['f_dates'])){ // Si formation n'est pas vide
-        $titre = addslashes($_POST['f_titre']);
-        $sousTitre = addslashes($_POST['f_soustitre']);
-        $dates = addslashes($_POST['f_dates']);
-        $description = addslashes($_POST['f_description']);
-        $pdoCV -> exec("INSERT INTO t_formations (f_titre, f_soustitre, f_dates, f_description, utilisateur_id) VALUES ('$titre', '$sousTitre', '$dates', '$description', '$id_utilisateur')");
-        header("location:formations.php");
+        $sql->bindParam(':f_titre', addslashes($_POST['f_titre']), PDO::PARAM_STR);
+        $sql->bindParam(':f_soustitre', addslashes($_POST['f_soustitre']), PDO::PARAM_STR);
+        $sql->bindParam(':f_dates', addslashes($_POST['f_dates']), PDO::PARAM_STR);
+        $sql->bindParam(':f_description', addslashes($_POST['f_description']), PDO::PARAM_STR);
+        $sql->execute();
+        header('location:formations.php');
         exit();
-
-    }// ferme if n'est pas vide
+    }
 }
+
 
 // Supression d'une compétence
 if(isset($_GET['id_formation'])){
@@ -76,7 +83,6 @@ include('inc/nav.inc.php');
                             <th>Description</th>
                             <th>Modifier</th>
                             <th>Supprimer</th>
-
                         </tr>
                         <tr>
                         <?php while($ligne_formation = $sql -> fetch(PDO::FETCH_ASSOC) ) {?>
@@ -103,14 +109,17 @@ include('inc/nav.inc.php');
                     <form action="formations.php" method="post">
                         <div class="form-group" id="form-group">
                             <label for="f_titre">Titre</label>
+                            <?= $erreur_titre; ?>
                             <input type="text" class="form-control" id="f_titre" name="f_titre" placeholder="Titre">
                         </div>
                         <div class="form-group" id="form-group">
                             <label for="f_soustitre">Sous-titre</label>
+                            <?= $erreur_soustitre; ?>
                             <input type="text" class="form-control" id="f_soustitre" name="f_soustitre" placeholder="Sous-titre">
                         </div>
                         <div class="form-group" id="form-group">
                             <label for="f_dates">Dates</label>
+                            <?= $erreur_date; ?>
                             <input type="text" class="form-control" id="f_dates" name="f_dates" placeholder="Insérez les dates">
                         </div>
                         <div class="form-group" id="form-group">
@@ -120,8 +129,7 @@ include('inc/nav.inc.php');
                         <script>
                                 CKEDITOR.replace('editor1');
                         </script>
-
-                        <button type="submit" class="btn btn-block">Insérer</button>
+                        <button type="submit" name='inserer' class="btn btn-block">Insérer</button>
                     </form>
                 </div>
             </div>

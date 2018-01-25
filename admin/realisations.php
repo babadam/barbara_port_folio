@@ -11,10 +11,18 @@ if(isset($_SESSION['connexion']) && $_SESSION['connexion']=='connecté'){ // si 
     header('location: index.php');
 }
 
-$sql = $pdoCV -> query("SELECT * FROM t_utilisateurs WHERE id_utilisateur = '$id_utilisateur'");
-$ligne_utilisateur = $sql -> fetch(PDO::FETCH_ASSOC);
 
-if(isset($_POST['r_titre'])){ // Si on a posté une nouvelle compétence
+if(!empty($_POST)){ // Si on a posté une nouvelle compétence
+    if(empty($_POST['r_titre'])){
+        $erreur_titre .= '<div class="alert alert-danger" role="alert">Veuillez renseigner le champs titre</div>';
+    }
+    if(empty($_POST['r_soustitre'])){
+        $erreur_soustitre .= '<div class="alert alert-danger" role="alert">Veuillez renseigner le champs sous-titre</div>';
+    }
+    if(empty($_POST['r_dates'])){
+        $erreur_date .= '<div class="alert alert-danger" role="alert">Veuillez renseigner le champs dates</div>';
+    }
+    if((empty($erreur_titre)) && (empty($erreur_soustitre)) && (empty($erreur_date))){
     // echo 'rentre dans ligne 6 => ok';
     if(!empty($_POST['r_titre']) && !empty($_POST['r_soustitre']) && !empty($_POST['r_dates']) && !empty($_POST['r_description'])){ // Si réalisation n'est pas vide
         $titre = addslashes($_POST['r_titre']);
@@ -25,7 +33,8 @@ if(isset($_POST['r_titre'])){ // Si on a posté une nouvelle compétence
         $pdoCV -> exec("INSERT INTO t_realisations (r_titre, r_soustitre, r_dates, r_description, r_photo, utilisateur_id) VALUES ('$titre', '$sousTitre', '$dates', '$description', '$photo', '$id_utilisateur')");
         header("location:realisations.php");
         exit();
-    }// ferme if n'est pas vide
+        }// ferme if n'est pas vide
+    }
 }
 // echo '<pre>'; print_r($_FILES); echo '</pre>';
 // Supression d'une compétence
@@ -103,14 +112,17 @@ include('inc/nav.inc.php');
                     <form action="realisations.php" method="post" >
                         <div class="form-group">
                             <label for="r_titre">Titre</label>
+                            <?= $erreur_titre; ?>
                             <input type="text" class="form-control" id="r_titre" name="r_titre" placeholder="Titre">
                         </div>
                         <div class="form-group">
                             <label for="r_soustitre">Sous-titre</label>
+                            <?= $erreur_soustitre; ?>
                             <input type="text" class="form-control" id="r_soustitre" name="r_soustitre" placeholder="Sous-titre">
                         </div>
                         <div class="form-group">
                             <label for="r_dates">Dates</label>
+                            <?= $erreur_date; ?>
                             <input type="text" class="form-control" id="r_dates" name="r_dates" placeholder="Insérez les dates">
                         </div>
                         <div class="form-group">

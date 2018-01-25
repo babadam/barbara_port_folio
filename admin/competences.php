@@ -11,19 +11,24 @@ if(isset($_SESSION['connexion']) && $_SESSION['connexion']=='connecté'){
     header('location: connexion.php');
 }
 
-if(isset($_POST['competence'])){ // Si on a posté une nouvelle compétence
-    //echo 'rentre dans ligne 6 => ok';
-    if(!empty($_POST['competence']) && !empty($_POST['c_niveau'])){ // Si compétence n'est pas vide
-        //echo 'rentre dans $_POST pas vide IF ligne 8';
-        $competence = addslashes($_POST['competence']);
-        $c_niveau = addslashes($_POST['c_niveau']);
+if(!empty($_POST)){ // Si on a posté une nouvelle compétence
+    if(empty($_POST['competence'])){
+        $erreur_competence .= '<div class="alert alert-danger" role="alert">Veuillez renseigner le champs titre</div>';
+    }
+    if(empty($_POST['c_niveau'])){
+        $erreur_niveau .= '<div class="alert alert-danger" role="alert">Veuillez renseigner le champs sous-titre</div>';
+    }
+    if( !is_numeric($_POST['c_niveau']) || ($_POST['c_niveau'] > 100 )){
+        $erreur_niveau .= '<div class="alert alert-danger" role="alert">Le niveau doit être un nombre compris entre 0 et 100</div>';
+    }
+    if((empty($erreur_competence)) && (empty($erreur_niveau))){ // Si compétence n'est pas vide
         $categorie = addslashes($_POST['categorie']);
-        $pdoCV -> exec("INSERT INTO t_competences (id_competence, competence, c_niveau, categorie, utilisateur_id) VALUES (NULL, '$competence', '$c_niveau', '$categorie', $id_utilisateur)"); // mettre $id_utilisateur quand on l'aura dans la variable de session
+        $sql = $pdoCV -> prepare("INSERT INTO t_competences (id_competence, competence, c_niveau, categorie, utilisateur_id) VALUES (NULL, :competence, :c_niveau, '$categorie', $id_utilisateur)");
+        $sql->bindParam(':competence', addslashes($_POST['competence']), PDO::PARAM_STR);
+        $sql->bindParam(':c_niveau', addslashes($_POST['c_niveau']), PDO::PARAM_INT);
+        $sql->execute();
         header("location:competences.php");
         exit();
-        // echo '<pre>';
-        // print_r($_POST);
-        // echo '</pre>';
     }// ferme if n'est pas vide
 
 } // ferme le if isset insertion
@@ -98,10 +103,12 @@ include('inc/nav.inc.php');
                     <form action="" method="post">
                         <div class="form-group">
                             <label for="competence">Compétence</label>
+                            <?= $erreur_competence; ?>
                             <input type="text" class="form-control" id="competence" name="competence" placeholder="Insérez votre competence">
                         </div>
                         <div class="form-group">
                             <label for="c_niveau">Niveau</label>
+                            <?= $erreur_niveau; ?>
                             <input type="text" class="form-control" id="c_niveau" name="c_niveau" placeholder="Insérez votre competence">
                         </div>
                         <div class="form-group">

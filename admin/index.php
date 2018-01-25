@@ -33,10 +33,6 @@ $resultat = $pdoCV -> prepare("SELECT * FROM t_competences WHERE utilisateur_id 
 $resultat -> execute();
 $nbr_competences =  $resultat -> rowCount();
 
-// requête pour compter les loisirs
-$resultat = $pdoCV -> prepare("SELECT * FROM t_loisirs WHERE utilisateur_id = '$id_utilisateur'");
-$resultat -> execute();
-$nbr_loisirs =  $resultat -> rowCount();
 
 // récupérer les messages du formulaire de contact
 $sql = $pdoCV -> prepare("SELECT * FROM t_commentaires");
@@ -109,17 +105,6 @@ include('inc/nav.inc.php');
                             echo $nbr_competences.' competence';
                         }else{
                             echo $nbr_competences.' competences';
-                        }?></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-offset-2 col-md-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <a href="loisirs.php"> Il y a <?php if ($nbr_loisirs <= 1){
-                            echo $nbr_loisirs.' loisir';
-                            }else{
-                            echo $nbr_loisirs.' loisirs';
                         }?></a>
                     </div>
                 </div>
