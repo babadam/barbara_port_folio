@@ -48,14 +48,14 @@ require_once('inc/header.inc.php');
 ?>
     <nav class="navbar navbar-default couleur"></nav>
 <!-- Contenu HTML -->
-    <h1>Connexion</h1>
+
     <div class="container">
         <div class="row">
-        <?= $msg_erreur ?>
-        <form method="post" action="connexion.php">
-            <div class="col-xs-12 col-sm-6 col-md-offset-3 col-md-6 col-sm-offset-1">
-                <div class="panel panel-default">
-
+            <h1 class="col-md-1 col-md-offset-5">Connexion</h1>
+            <?= $msg_erreur ?>
+            <form method="post" action="connexion.php">
+                <div class="col-xs-12 col-sm-6 col-md-offset-3 col-md-6 col-sm-offset-1">
+                    <div class="panel panel-default">
                     <div class="panel-body" id="connexion">
                         <div class="form-group">
                             <input type="text" class="form-control" name="pseudo" placeholder="Pseudo">
@@ -64,7 +64,7 @@ require_once('inc/header.inc.php');
                             <input type="password" class="form-control" name="mdp" placeholder="Mot de passe">
                         </div>
                         <!-- <button type="submit" name="connexion">Connexion</button> -->
-                            <input type="submit" class="btn btn-primary btn-block couleur" value="Connexion" name=connexion>
+                        <input type="submit" class="btn btn-primary btn-block couleur" value="Connexion" name=connexion>
                     </div>
                 </div>
             </div>
