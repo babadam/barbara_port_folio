@@ -3,11 +3,8 @@
 require_once('inc/init.inc.php');
 require_once('inc/fonctions.inc.php');
 
-
 //Traitement pour la deconnexion de l'admin
 if(isset($_GET['action']) && $_GET['action'] == 'deconnexion'){
-    // unset($_SESSION['t_utilisateurs']);
-    // header('location: connexionAdmin.php');
     $_SESSION['connexion']=''; // on vide les variables de SESSION
     $_SESSION['id_utilisateur']='';
     $_SESSION['prenom']='';
@@ -17,36 +14,46 @@ if(isset($_GET['action']) && $_GET['action'] == 'deconnexion'){
     unset($_SESSION['connexion']); // connexion = name du bouton submit
     session_destroy();
     header('location: connexion.php');
-}
+} // fin traitement déconnexion de l'admin
 
+if(!empty($_POST)){
+    // On vérifie que les deux champs ne sont pas vides
+    if(!empty($_POST['pseudo']) && !empty($_POST['mdp'])){
+        // On connecte le membre en enregistrant ses infos dans la session
+        // -> Le membre existe-t-il en BDD ?
+        $sql = $pdoCV -> prepare("SELECT * FROM t_utilisateurs WHERE pseudo = :pseudo");
+        $sql -> bindParam(':pseudo', $_POST['pseudo'], PDO::PARAM_STR);
+        $sql -> execute();
+        
+        if($sql -> rowCount() > 0){ // le pseudo existe en BDD 
+            // -> Le MDP saisi correspond au pseudo en BDD
+            $ligne_utilisateur = $sql -> fetch(PDO::FETCH_ASSOC); // je récupère toutes les infos du membre qui souhaite se connecter sous la forme d'un array indéxé
+            if($ligne_utilisateur['mdp'] == ($_POST['mdp'])){ // 
+                // Tout est OK on peut connecter l'utilisateur
+                 $_SESSION['connexion']='connecté';
+                 $_SESSION['id_utilisateur']=$ligne_utilisateur['id_utilisateur']; // on stocke dans la SESSION les infos de l'utilisateur
+                 $_SESSION['prenom']=$ligne_utilisateur['prenom']; 
+                 $_SESSION['nom']=$ligne_utilisateur['nom']; 
+                 $_SESSION['pseudo']=$ligne_utilisateur['pseudo']; 
 
-if(isset($_POST['connexion'])){ // on envoie le form avec le name du boutton
-    $pseudo = addslashes($_POST['pseudo']);
-    $mdp = addslashes($_POST['mdp']);
-    $sql = $pdoCV -> prepare("SELECT * FROM t_utilisateurs WHERE pseudo = '$pseudo' && mdp='$mdp' ");
-    $sql -> execute();
-    $nbr_utilisateur = $sql -> rowCount(); // on compte si l'utilisateur est dans la table. 1 TRUE 0 FALSE
-
-    if($nbr_utilisateur == 0){ // L'utilisateur n'est pas dans la BDD
+                header('location: index.php'); 
+            } // fin if vérification du mdp
+            else{
+                $msg_erreur .= '<div class="alert alert-danger col-md-offset-3 col-md-6"> Mot de passe invalide !</div>';
+            }
+        } // fin du rowCount
+        else{
+            $msg_erreur .= '<div class="alert alert-danger col-md-offset-3 col-md-6"> Le pseudo '. $_POST['pseudo'].' n\'est pas reconnu.</div>';
+        }
+    } // fin !empty($_POST['pseudo']) && !empty($_POST['mdp'])
+    else{
         $msg_erreur .= '<div class="alert alert-danger col-md-offset-3 col-md-6"> Veuillez renseigner un pseudo et un mot de passe !</div>';
-    }else{ // L'utilisateur est dans la BDD
-        $ligne_utilisateur = $sql -> fetch(); // on cherche ses infos
-        $_SESSION['connexion']='connecté';
-        $_SESSION['id_utilisateur']=$ligne_utilisateur['id_utilisateur']; // on met dans la SESSION les infos de l'utilisateur
-        $_SESSION['prenom']=$ligne_utilisateur['prenom']; // on met dans la SESSION les infos de l'utilisateur
-        $_SESSION['nom']=$ligne_utilisateur['nom']; // on met dans la SESSION les infos de l'utilisateur
-        $_SESSION['pseudo']=$ligne_utilisateur['pseudo']; // on met dans la SESSION les infos de l'utilisateur
+    }
+} //fin (!empty($_POST))
 
-        header('location: index.php');
-    } // ferme le if else
-}// ferme le if isset
-
-
-
-$page = 'Connexion';
 require_once('inc/header.inc.php');
+
 ?>
-    <nav class="navbar navbar-default couleur"></nav>
 <!-- Contenu HTML -->
 
     <div class="container">
@@ -63,7 +70,6 @@ require_once('inc/header.inc.php');
                         <div class="form-group">
                             <input type="password" class="form-control" name="mdp" placeholder="Mot de passe">
                         </div>
-                        <!-- <button type="submit" name="connexion">Connexion</button> -->
                         <input type="submit" class="btn btn-primary btn-block couleur" value="Connexion" name=connexion>
                     </div>
                 </div>
