@@ -85,7 +85,7 @@ include('inc/nav.inc.php');
                            <td><?php echo $ligne_competence['c_niveau'] ;?></td>
                            <td><?php echo $ligne_competence['categorie'] ;?></td>
                            <td><a href="modif_competence.php?id_competence=<?= $ligne_competence['id_competence']; ?>"><button type="button" class="btn btn-success">Modifier</button></a></td>
-                           <td><a href="competences.php?id_competence=<?= $ligne_competence['id_competence']; ?>"><button type="button" class="btn btn-danger">Supprimer</button></a></td>
+                           <td><a href="competences.php?id_competence=<?= $ligne_competence['id_competence']; ?>"><button type="button" class="btn btn-danger" onclick="return confirm('Etes vous sûre de vouloir supprimer cette compétence ?');">Supprimer</button></a></td>
                        </tr>
                         <?php } ?>
                     </table>

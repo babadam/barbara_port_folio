@@ -12,7 +12,7 @@ if(isset($_SESSION['connexion']) && $_SESSION['connexion']=='connecté'){ // si 
 }
 
 if(!empty($_POST)){ // Si on a posté une nouvelle compétence
-    
+
     if(empty($_POST['f_titre'])){
         $erreur_titre .= '<div class="alert alert-danger" role="alert">Veuillez renseigner le champs titre</div>';
     }
@@ -91,7 +91,7 @@ include('inc/nav.inc.php');
                            <td><?php echo $ligne_formation['f_dates'] ;?></td>
                            <td><?php echo $ligne_formation['f_description'] ;?></td>
                            <td><a href="modif_formation.php?id_formation=<?= $ligne_formation['id_formation']; ?>"><button type="button" class="btn btn-success">Modifier</button></a></td>
-                           <td><a href="formations.php?id_formation=<?= $ligne_formation['id_formation']; ?>"><button type="button" class="btn btn-danger">Supprimer</button></a></td>
+                           <td><a onclick="return confirm('Etes vous sûre de vouloir supprimer cette compétence ?');" href="formations.php?id_formation=<?= $ligne_formation['id_formation']; ?>"><button type="button" class="btn btn-danger">Supprimer</button></a></td>
                        </tr>
                         <?php } ?>
                     </table>

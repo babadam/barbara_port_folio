@@ -94,7 +94,7 @@ include('inc/nav.inc.php');
                            <td><?php echo $ligne_realisation['r_description'] ;?></td>
                            <td><?php echo $ligne_realisation['r_photo'] ;?></td>
                            <td><a href="modif_realisation.php?id_realisation=<?= $ligne_realisation['id_realisation']; ?>"><button type="button" class="btn btn-success">Modifier</button></a></td>
-                           <td><a href="realisations.php?id_realisation=<?= $ligne_realisation['id_realisation']; ?>"><button type="button" class="btn btn-danger">Supprimer</button></a></td>
+                           <td><a href="realisations.php?id_realisation=<?= $ligne_realisation['id_realisation']; ?>" onclick="return confirm('Etes vous sûre de vouloir supprimer cette compétence ?');"><button type="button" class="btn btn-danger">Supprimer</button></a></td>
                        </tr>
                         <?php } ?>
                     </table>

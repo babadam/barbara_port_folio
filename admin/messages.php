@@ -63,7 +63,7 @@ include('inc/nav.inc.php');
                                <td><?php echo $ligne_commentaire['telephone'] ;?></td>
                                <td><?php echo $ligne_commentaire['sujet'] ;?></td>
                                <td><?php echo $ligne_commentaire['message'] ;?></td>
-                               <td><a href="messages.php?id_commentaire=<?= $ligne_commentaire['id_commentaire']; ?>"><button type="button" class="btn btn-danger">Supprimer</button></a></td>
+                               <td><a href="messages.php?id_commentaire=<?= $ligne_commentaire['id_commentaire']; ?>" onclick="return confirm('Etes vous sûre de vouloir supprimer cette compétence ?');"><button type="button" class="btn btn-danger">Supprimer</button></a></td>
                            </tr>
                             <?php } ?>
                         </table>
